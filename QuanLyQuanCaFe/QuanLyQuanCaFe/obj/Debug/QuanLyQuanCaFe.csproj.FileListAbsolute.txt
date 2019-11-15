@@ -10,3 +10,16 @@ O:\Doanquanliquancafe\QuanLyQuanCaFe\QuanLyQuanCaFe\obj\Debug\QuanLyQuanCaFe.fTa
 O:\Doanquanliquancafe\QuanLyQuanCaFe\QuanLyQuanCaFe\obj\Debug\QuanLyQuanCaFe.fAccountProfile.resources
 O:\Doanquanliquancafe\QuanLyQuanCaFe\QuanLyQuanCaFe\obj\Debug\QuanLyQuanCaFe.fAdmin.resources
 O:\Doanquanliquancafe\QuanLyQuanCaFe\QuanLyQuanCaFe\obj\Debug\QuanLyQuanCaFe.fLogin.resources
+E:\C#\Doanquanliquancf\QuanLyQuanCaFe\QuanLyQuanCaFe\bin\Debug\QuanLyQuanCaFe.exe.config
+E:\C#\Doanquanliquancf\QuanLyQuanCaFe\QuanLyQuanCaFe\bin\Debug\QuanLyQuanCaFe.exe
+E:\C#\Doanquanliquancf\QuanLyQuanCaFe\QuanLyQuanCaFe\bin\Debug\QuanLyQuanCaFe.pdb
+E:\C#\Doanquanliquancf\QuanLyQuanCaFe\QuanLyQuanCaFe\obj\Debug\QuanLyQuanCaFe.csprojAssemblyReference.cache
+E:\C#\Doanquanliquancf\QuanLyQuanCaFe\QuanLyQuanCaFe\obj\Debug\QuanLyQuanCaFe.fAccountProfile.resources
+E:\C#\Doanquanliquancf\QuanLyQuanCaFe\QuanLyQuanCaFe\obj\Debug\QuanLyQuanCaFe.fAdmin.resources
+E:\C#\Doanquanliquancf\QuanLyQuanCaFe\QuanLyQuanCaFe\obj\Debug\QuanLyQuanCaFe.fTableManager.resources
+E:\C#\Doanquanliquancf\QuanLyQuanCaFe\QuanLyQuanCaFe\obj\Debug\QuanLyQuanCaFe.fLogin.resources
+E:\C#\Doanquanliquancf\QuanLyQuanCaFe\QuanLyQuanCaFe\obj\Debug\QuanLyQuanCaFe.Properties.Resources.resources
+E:\C#\Doanquanliquancf\QuanLyQuanCaFe\QuanLyQuanCaFe\obj\Debug\QuanLyQuanCaFe.csproj.GenerateResource.cache
+E:\C#\Doanquanliquancf\QuanLyQuanCaFe\QuanLyQuanCaFe\obj\Debug\QuanLyQuanCaFe.csproj.CoreCompileInputs.cache
+E:\C#\Doanquanliquancf\QuanLyQuanCaFe\QuanLyQuanCaFe\obj\Debug\QuanLyQuanCaFe.exe
+E:\C#\Doanquanliquancf\QuanLyQuanCaFe\QuanLyQuanCaFe\obj\Debug\QuanLyQuanCaFe.pdb

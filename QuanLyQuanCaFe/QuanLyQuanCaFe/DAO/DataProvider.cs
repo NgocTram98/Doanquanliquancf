@@ -19,7 +19,7 @@ namespace QuanLyQuanCaFe.DAO
             private set { DataProvider.instance = value; }
         }
         private DataProvider() { }
-        private string connectionSTR = @"Data Source=DESKTOP-BO3QL5M\SQLEXPRESS;Initial Catalog=Quanlycafe;Integrated Security=True";
+        private string connectionSTR = @"Server=(local);Initial Catalog=Quanlycafe;Integrated Security=True"; // Chỉnh sửa connection string này lại để kết nối với hệ qt CSDL khác
         public DataTable ExecuteQuery(string query, object[] parameter = null)
         {
             DataTable data = new DataTable();

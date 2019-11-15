@@ -27,6 +27,10 @@ namespace QuanLyQuanCaFe
             {
                 Button btn = new Button() { Width = TableDAO.TableWidth, Height = TableDAO.TableHeight };
                 btn.Text = item.Name + Environment.NewLine + item.Status;
+
+                btn.Click += btn_Click;
+                btn.Tag = item;
+
                 flpTable.Controls.Add(btn);
                 switch (item.Status)
                 {
@@ -39,8 +43,22 @@ namespace QuanLyQuanCaFe
                 }
             }
         }
+
+        void LoadBill(int tableId)
+        {
+               
+        }
+
         #endregion
+
         #region Events
+
+        private void btn_Click (object sender, EventArgs e)
+        {
+            int tableId = (sender as Table).ID;
+            LoadBill(tableId);
+        }
+
         private void fTableManager_Load(object sender, EventArgs e)
         {
 
@@ -68,5 +86,10 @@ namespace QuanLyQuanCaFe
             f.ShowDialog();
         }
         #endregion
+
+        private void MenuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
     }
 }
