@@ -44,9 +44,20 @@ namespace QuanLyQuanCaFe
             }
         }
 
-        void LoadBill(int tableId)
+        void ShowBill(int tableId)
         {
-               
+            //MessageBox.Show(tableId + "");
+            lsvBill.Items.Clear();
+            var list = MenuDAO.Instance.GetListMenuByTable(tableId);
+            
+            foreach (var info in list)
+            {
+                var lsvItem = new ListViewItem(info.Name);
+                lsvItem.SubItems.Add(info.Count+"");
+                lsvItem.SubItems.Add(info.Price + "");
+                lsvItem.SubItems.Add(info.Money + "");
+                lsvBill.Items.Add(lsvItem);
+            }
         }
 
         #endregion
@@ -55,8 +66,8 @@ namespace QuanLyQuanCaFe
 
         private void btn_Click (object sender, EventArgs e)
         {
-            int tableId = (sender as Table).ID;
-            LoadBill(tableId);
+            int tableId = ((sender as Button).Tag as Table).ID;
+            ShowBill(tableId);
         }
 
         private void fTableManager_Load(object sender, EventArgs e)

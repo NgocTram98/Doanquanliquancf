@@ -10,16 +10,29 @@ namespace QuanLyQuanCaFe.DTO
     public class Bill
     {
         private int id;
-        DateTime? DateCheckIn, DateCheckOut;
+        private DateTime? dateCheckIn;
+        private DateTime? dateCheckOut;
         private int status;
+
+        public Bill(int id, DateTime? dateCheckIn, DateTime? dateCheckOut, int status)
+        {
+            this.Id = id;
+            this.dateCheckIn = dateCheckIn;
+            this.dateCheckOut = dateCheckOut;
+            this.status = status;
+        }
 
         public Bill(DataRow row)
         {
-            id = (int)row["id"];
-            DateCheckIn = (DateTime?) row["DateCheckIn"];
-            DateCheckOut = (DateTime?)row["DateCheckOut"];
-            status = (int)row["status"];
+            Id = (int)row["id"];
+            DateCheckIn = (row["DateCheckIn"] == DBNull.Value ? null : (DateTime?)row["DateCheckIn"]);
+            DateCheckIn = (row["DateCheckOut"] == DBNull.Value ? null : (DateTime?)row["DateCheckOut"]);            
+            Status = (int)row["status"];
         }
 
+        public DateTime? DateCheckIn { get => dateCheckIn; set => dateCheckIn = value; }
+        public DateTime? DateCheckOut { get => dateCheckOut; set => dateCheckOut = value; }
+        public int Status { get => status; set => status = value; }
+        public int Id { get => id; set => id = value; }
     }
 }
