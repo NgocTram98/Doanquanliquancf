@@ -10,15 +10,15 @@ namespace QuanLyQuanCaFe.DTO
     {
         String name;
         int count;
-        float price;
-        float money;
+        double price;
+        double money;
 
         public string Name { get => name; set => name = value; }
         public int Count { get => count; set => count = value; }
-        public float Price { get => price; set => price = value; }
-        public float Money { get => money; set => money = value; }
+        public double Price { get => price; set => price = value; }
+        public double Money { get => money; set => money = value; }
 
-        public Menu(string name, int count, float price, int money)
+        public Menu(string name, int count, double price, double money)
         {
             this.Name = name;
             this.Count = count;
@@ -30,8 +30,8 @@ namespace QuanLyQuanCaFe.DTO
         {
             this.Name = (String)row["name"];
             this.Count= (int)row["count"];
-            this.Price = (float)row["price"];
-            this.Money = (float)row["sum"];
+            this.Price = (double)row["price"];
+            this.Money = (double)row["sum"];
         }
     }
 }
