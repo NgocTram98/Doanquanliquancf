@@ -51,6 +51,8 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label1 = new System.Windows.Forms.Label();
+            this.lbTongTien = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -68,7 +70,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(854, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(959, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.MenuStrip1_ItemClicked);
@@ -109,7 +111,7 @@
             this.panel2.Location = new System.Drawing.Point(526, 80);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(319, 414);
+            this.panel2.Size = new System.Drawing.Size(419, 414);
             this.panel2.TabIndex = 2;
             // 
             // lsvBill
@@ -121,16 +123,18 @@
             this.columnHeader4});
             this.lsvBill.GridLines = true;
             this.lsvBill.HideSelection = false;
-            this.lsvBill.Location = new System.Drawing.Point(2, 2);
+            this.lsvBill.Location = new System.Drawing.Point(2, 3);
             this.lsvBill.Margin = new System.Windows.Forms.Padding(2);
             this.lsvBill.Name = "lsvBill";
-            this.lsvBill.Size = new System.Drawing.Size(315, 409);
+            this.lsvBill.Size = new System.Drawing.Size(415, 409);
             this.lsvBill.TabIndex = 0;
             this.lsvBill.UseCompatibleStateImageBehavior = false;
             this.lsvBill.View = System.Windows.Forms.View.Details;
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.lbTongTien);
+            this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.cbSwitchTable);
             this.panel3.Controls.Add(this.btnSwitchTable);
             this.panel3.Controls.Add(this.nmDisCount);
@@ -139,7 +143,7 @@
             this.panel3.Location = new System.Drawing.Point(526, 499);
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(318, 50);
+            this.panel3.Size = new System.Drawing.Size(421, 50);
             this.panel3.TabIndex = 3;
             // 
             // cbSwitchTable
@@ -163,7 +167,7 @@
             // 
             // nmDisCount
             // 
-            this.nmDisCount.Location = new System.Drawing.Point(115, 29);
+            this.nmDisCount.Location = new System.Drawing.Point(86, 27);
             this.nmDisCount.Margin = new System.Windows.Forms.Padding(2);
             this.nmDisCount.Name = "nmDisCount";
             this.nmDisCount.Size = new System.Drawing.Size(80, 20);
@@ -172,7 +176,7 @@
             // 
             // btnDiscount
             // 
-            this.btnDiscount.Location = new System.Drawing.Point(115, 3);
+            this.btnDiscount.Location = new System.Drawing.Point(86, 4);
             this.btnDiscount.Margin = new System.Windows.Forms.Padding(2);
             this.btnDiscount.Name = "btnDiscount";
             this.btnDiscount.Size = new System.Drawing.Size(80, 21);
@@ -182,7 +186,7 @@
             // 
             // btnCheckOut
             // 
-            this.btnCheckOut.Location = new System.Drawing.Point(236, 2);
+            this.btnCheckOut.Location = new System.Drawing.Point(339, 3);
             this.btnCheckOut.Margin = new System.Windows.Forms.Padding(2);
             this.btnCheckOut.Name = "btnCheckOut";
             this.btnCheckOut.Size = new System.Drawing.Size(80, 44);
@@ -199,7 +203,7 @@
             this.panel4.Location = new System.Drawing.Point(526, 25);
             this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(319, 50);
+            this.panel4.Size = new System.Drawing.Size(419, 50);
             this.panel4.TabIndex = 4;
             // 
             // numericUpDown1
@@ -212,7 +216,7 @@
             0,
             -2147483648});
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(40, 20);
+            this.numericUpDown1.Size = new System.Drawing.Size(59, 20);
             this.numericUpDown1.TabIndex = 3;
             this.numericUpDown1.Value = new decimal(new int[] {
             1,
@@ -222,7 +226,7 @@
             // 
             // btnAddFood
             // 
-            this.btnAddFood.Location = new System.Drawing.Point(192, 2);
+            this.btnAddFood.Location = new System.Drawing.Point(339, 2);
             this.btnAddFood.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddFood.Name = "btnAddFood";
             this.btnAddFood.Size = new System.Drawing.Size(80, 44);
@@ -236,7 +240,7 @@
             this.cbFood.Location = new System.Drawing.Point(2, 27);
             this.cbFood.Margin = new System.Windows.Forms.Padding(2);
             this.cbFood.Name = "cbFood";
-            this.cbFood.Size = new System.Drawing.Size(186, 21);
+            this.cbFood.Size = new System.Drawing.Size(263, 21);
             this.cbFood.TabIndex = 1;
             // 
             // cbCategory
@@ -245,7 +249,7 @@
             this.cbCategory.Location = new System.Drawing.Point(2, 2);
             this.cbCategory.Margin = new System.Windows.Forms.Padding(2);
             this.cbCategory.Name = "cbCategory";
-            this.cbCategory.Size = new System.Drawing.Size(186, 21);
+            this.cbCategory.Size = new System.Drawing.Size(263, 21);
             this.cbCategory.TabIndex = 0;
             this.cbCategory.SelectedIndexChanged += new System.EventHandler(this.cbCategory_SelectedIndexChanged);
             // 
@@ -261,6 +265,7 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "Tên món";
+            this.columnHeader1.Width = 150;
             // 
             // columnHeader2
             // 
@@ -269,16 +274,39 @@
             // columnHeader3
             // 
             this.columnHeader3.Text = "Đơn giá";
+            this.columnHeader3.Width = 90;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "Thành tiền";
+            this.columnHeader4.Width = 150;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(171, 6);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(52, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Tổng tiền";
+            // 
+            // lbTongTien
+            // 
+            this.lbTongTien.AutoSize = true;
+            this.lbTongTien.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTongTien.ForeColor = System.Drawing.Color.Red;
+            this.lbTongTien.Location = new System.Drawing.Point(191, 26);
+            this.lbTongTien.Name = "lbTongTien";
+            this.lbTongTien.Size = new System.Drawing.Size(17, 18);
+            this.lbTongTien.TabIndex = 8;
+            this.lbTongTien.Text = "0";
+            this.lbTongTien.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // fTableManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(854, 559);
+            this.ClientSize = new System.Drawing.Size(959, 559);
             this.Controls.Add(this.flpTable);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
@@ -294,6 +322,7 @@
             this.menuStrip1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmDisCount)).EndInit();
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
@@ -327,5 +356,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.Label lbTongTien;
+        private System.Windows.Forms.Label label1;
     }
 }

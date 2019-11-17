@@ -2,6 +2,7 @@
 using QuanLyQuanCaFe.DTO;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -49,15 +50,19 @@ namespace QuanLyQuanCaFe
             //MessageBox.Show(tableId + "");
             lsvBill.Items.Clear();
             var list = MenuDAO.Instance.GetListMenuByTable(tableId);
-            
+
+            double sum = 0;
             foreach (var info in list)
             {
+                sum += info.Money;
                 var lsvItem = new ListViewItem(info.Name);
                 lsvItem.SubItems.Add(info.Count+"");
                 lsvItem.SubItems.Add(info.Price + "");
                 lsvItem.SubItems.Add(info.Money + "");
                 lsvBill.Items.Add(lsvItem);
             }
+            CultureInfo culture = new CultureInfo("vi");
+            lbTongTien.Text = sum.ToString("c", culture);
         }
 
         #endregion
