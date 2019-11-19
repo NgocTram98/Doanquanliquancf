@@ -46,5 +46,51 @@ namespace QuanLyQuanCaFe.DAO
             return -1;
         }
 
+        public int InsertBill(int idTable) // Chèn bill vào một bàn (cho bởi Id của bàn đó)
+        {
+            String sql = "INSERT INTO dbo.bill (datecheckout, idTable, status) VALUES (NULL, "+idTable+", 0) UPDATE dbo.TableFood SET status='co nguoi' WHERE id="+idTable;
+            DataProvider.Instance.ExecuteScalar(sql);
+            // Gửi lại id Bill mới
+            return GetUncheckedBillIDByTableID (idTable);
+        }
+
+        private int __faceRemoveBillByTable (int idTable)
+        {
+            int billId = GetUncheckedBillIDByTableID(idTable);
+            if (billId == -1)
+                return -1;
+
+            String sql = "UPDATE dbo.bill SET status=1 WHERE id=" + billId + " UPDATE dbo.tablefood SET status='trong' WHERE id=" + idTable;
+            DataProvider.Instance.ExecuteScalar(sql);
+
+            return billId;
+        }
+        public int checkOut (int idTable)
+        {
+            return __faceRemoveBillByTable(idTable);
+        }
+
+        public int moveToTable (int idTable, int idTableMovedTo)
+        {
+            int billId = __faceRemoveBillByTable(idTable); // thực ra đặt là fromBill thì đúng hơn :)
+            if (billId == -1)
+                return -1;
+            int toBill = GetUncheckedBillIDByTableID(idTable);
+            if (toBill != -1) // Ở đó đang có người ngồi 
+            {
+                // Gộp bill
+                String sql = "UPDATE dbo.billinfo SET idBill=" + toBill + " WHERE idBill=" + billId;
+                DataProvider.Instance.ExecuteScalar(sql);
+            } else
+            {
+                // Này dễ hơn, chỉ cần sửa cái bàn là xong:)
+                String sql = "UPDATE dbo.billinfo SET idTable=" + idTableMovedTo + " WHERE idBill=" + billId 
+                    + " UPDATE dbo.TableFood SET status='co nguoi' WHERE id="+idTableMovedTo;
+                DataProvider.Instance.ExecuteScalar(sql); 
+            }
+            return idTableMovedTo;
+        }
     }
+
+    
 }

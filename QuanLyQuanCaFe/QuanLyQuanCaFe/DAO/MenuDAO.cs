@@ -31,5 +31,19 @@ namespace QuanLyQuanCaFe.DAO
             }
             return infos;
         }
+
+        public double GetTotalMoneyByTable (int id)
+        {
+
+            if (BillDAO.Instance.GetUncheckedBillIDByTableID(id) == -1)
+                return 0;
+            String sql = "select SUM (dbo.Food.price* dbo.billInfo.count) as sum "
+            + "from dbo.bill, dbo.billinfo, dbo.tableFood, dbo.Food    where dbo.billinfo.idBill = dbo.bill.id and dbo.bill.idTable = dbo.tableFood.id"
+            + " and dbo.billinfo.idFood = dbo.Food.id "
+            + " and dbo.bill.status= 0 "
+            + " and dbo.tableFood.id=" + id;
+            DataTable table = DataProvider.Instance.ExecuteQuery(sql);            
+            return (double) table.Rows[0]["sum"];
+        }
     }
 }
