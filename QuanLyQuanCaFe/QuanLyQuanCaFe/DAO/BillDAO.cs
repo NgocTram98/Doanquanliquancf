@@ -67,6 +67,13 @@ namespace QuanLyQuanCaFe.DAO
         }
         public int checkOut (int idTable)
         {
+            int billId = GetUncheckedBillIDByTableID(idTable);
+            if (billId == -1)
+                return -1;
+
+            String sql = "UPDATE dbo.bill SET DateCheckOut=GetDate() WHERE id=" + billId; // Chèn ngày cho việc Thanh Toán Bill
+            DataProvider.Instance.ExecuteScalar(sql);
+            // Lặp lại chỗ này cũng ko hay lắm, nhưng vì tốc độ viết chương trình :)
             return __faceRemoveBillByTable(idTable);
         }
 
@@ -84,7 +91,7 @@ namespace QuanLyQuanCaFe.DAO
             } else
             {
                 // Này dễ hơn, chỉ cần sửa cái bàn là xong:)
-                String sql = "UPDATE dbo.billinfo SET idTable=" + idTableMovedTo + " WHERE idBill=" + billId 
+                String sql = "UPDATE dbo.bill SET idTable=" + idTableMovedTo + " WHERE idBill=" + billId 
                     + " UPDATE dbo.TableFood SET status='co nguoi' WHERE id="+idTableMovedTo;
                 DataProvider.Instance.ExecuteScalar(sql); 
             }

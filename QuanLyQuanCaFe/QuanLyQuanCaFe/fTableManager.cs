@@ -78,7 +78,10 @@ namespace QuanLyQuanCaFe
         void UpdateChange (int tableId)
         {
             ShowBill(tableId);
-            ShowMoney(tableId, (double)nmDisCount.Value);
+            ShowMoney(tableId, (double)nmDisCount.Value);        
+            cbSwitchTable.ValueMember = "Id";
+            cbSwitchTable.DisplayMember = "Name";
+            cbSwitchTable.DataSource = TableDAO.Instance.LoadTableWithStatus ("trong");
         }
         void ShowBill(int tableId)
         {
@@ -113,8 +116,7 @@ namespace QuanLyQuanCaFe
 
             BillInfoDAO.Instance.InsertBillInfos(billId, idFood, count);
 
-            ShowBill(currentTableId);
-            ShowMoney(currentTableId, (double)nmDisCount.Value);
+            UpdateChange(currentTableId);
         }
 
         #endregion
@@ -124,8 +126,7 @@ namespace QuanLyQuanCaFe
         private void btn_Click (object sender, EventArgs e)
         {
             int tableId = ((sender as Button).Tag as Table).ID;
-            ShowBill(tableId);
-            ShowMoney(currentTableId, (double)nmDisCount.Value);
+            UpdateChange(tableId);
         }
 
         private void fTableManager_Load(object sender, EventArgs e)
@@ -193,6 +194,19 @@ namespace QuanLyQuanCaFe
             {
                 MessageBox.Show("Không thể thanh toán bàn trống");
             }
+        }
+
+        private void BtnSwitchTable_Click(object sender, EventArgs e)
+        {
+            if (cbSwitchTable.SelectedValue == null)
+                return;
+
+            int idTableFrom = currentTableId;
+            int idTableMovedTo = (int)cbSwitchTable.SelectedValue;
+            BillDAO.Instance.moveToTable(idTableFrom, idTableMovedTo);
+            currentTableId = idTableMovedTo;
+            LoadTable();
+            UpdateChange(currentTableId);
         }
     }
 }
