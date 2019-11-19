@@ -19,8 +19,26 @@ namespace QuanLyQuanCaFe
         {
             InitializeComponent();
             LoadTable();
+            LoadCategoryList();
         }
         #region Method
+        void LoadCategoryList()
+        {
+            var categories = CategoryDAO.Instance.GetCategoryList();
+            cbCategory.Items.Clear();
+            cbCategory.DataSource = categories;
+            cbFood.ValueMember = "Id";
+            cbCategory.DisplayMember = "CategoryName";            
+        }
+
+        void LoadFood (int idCategory)
+        {
+            var food = FoodDAO.Instance.GetFoodByCategory (idCategory);           
+            cbFood.DataSource = food;
+            cbFood.ValueMember = "Id";
+            cbFood.DisplayMember = "Name";                  
+        }
+
         void LoadTable()
         {
             List<Table> tableList = TableDAO.Instance.LoadTableList();
@@ -82,7 +100,8 @@ namespace QuanLyQuanCaFe
 
         private void cbCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            int selectedValue = (int) (((ComboBox) sender).SelectedValue as Category).Id;
+            LoadFood(selectedValue);
         }
 
         private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
