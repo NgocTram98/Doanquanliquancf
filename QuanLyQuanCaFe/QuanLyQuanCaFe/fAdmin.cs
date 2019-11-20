@@ -19,7 +19,11 @@ namespace QuanLyQuanCaFe
             InitializeComponent();
            
         }
-        
 
+        private void btnViewBill_Click(object sender, EventArgs e)
+        {
+            var bills = BillDAO.Instance.GetAllBillRegardsPeriodOfTime(dtpkFromDate.Value, dtpkToDate.Value);            
+            dtgvBill.DataSource = bills;           
+        }
     }
 }

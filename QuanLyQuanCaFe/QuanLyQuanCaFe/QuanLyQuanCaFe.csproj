@@ -54,6 +54,7 @@
     <Compile Include="DAO\TableDAO.cs" />
     <Compile Include="DTO\Bill.cs" />
     <Compile Include="DTO\BillInfo.cs" />
+    <Compile Include="DTO\BillStatistic.cs" />
     <Compile Include="DTO\Category.cs" />
     <Compile Include="DTO\Food.cs" />
     <Compile Include="DTO\Menu.cs" />

@@ -26,7 +26,7 @@ namespace QuanLyQuanCaFe.DTO
         {
             Id = (int)row["id"];
             DateCheckIn = (row["DateCheckIn"] == DBNull.Value ? null : (DateTime?)row["DateCheckIn"]);
-            DateCheckIn = (row["DateCheckOut"] == DBNull.Value ? null : (DateTime?)row["DateCheckOut"]);            
+            DateCheckOut = (row["DateCheckOut"] == DBNull.Value ? null : (DateTime?)row["DateCheckOut"]);            
             Status = (int)row["status"];
         }
 

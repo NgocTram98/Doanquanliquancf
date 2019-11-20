@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,5 +33,19 @@ namespace QuanLyQuanCaFe.DAO
             }
             return tableList;
         }
+
+        public List<Table> LoadTableWithStatus(String status)
+        {
+            List<Table> tableList = new List<Table>();
+            DataTable data = DataProvider.Instance.ExecuteQuery("SELECT * FROM dbo.tableFood WHERE status='"+status+"'");
+            foreach (DataRow item in data.Rows)
+            {
+                Table table = new Table(item);
+                tableList.Add(table);
+            }
+            return tableList;
+        }
+
+
     }
 }

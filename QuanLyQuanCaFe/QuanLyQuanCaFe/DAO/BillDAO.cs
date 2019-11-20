@@ -31,7 +31,6 @@ namespace QuanLyQuanCaFe.DAO
         {
             
         }
-
         // Thất bại trả về -1
         // Sao không raise exception nhỉ :), nhằng
         public int GetUncheckedBillIDByTableID(int idTable)
@@ -45,6 +44,77 @@ namespace QuanLyQuanCaFe.DAO
             }
             return -1;
         }
-        
+
+        public List<BillStatistic> GetAllBillRegardsPeriodOfTime(DateTime? DateCheckIn, DateTime? DateCheckOut)
+        {
+            String sql = "SELECT bill.id, bill.datecheckin, bill.datecheckout, bill.status, SUM (billinfo.count*food.price) AS sum "
+                +" FROM dbo.bill, dbo.billinfo, dbo.Food "
+                +" WHERE dbo.billinfo.idBill = dbo.bill.id "
+                +" AND dbo.billinfo.idFood = dbo.food.id "
+                + "GROUP BY dbo.bill.id, bill.datecheckin, bill.datecheckout, bill.status "
+                + "HAVING bill.datecheckin >= '"+DateCheckIn.Value.ToShortDateString() + "' AND(bill.datecheckout <= '" + DateCheckOut.Value.ToShortDateString() 
+                + "' OR ISNULL(bill.datecheckout, '') = '')";
+            
+            DataTable table = DataProvider.Instance.ExecuteQuery(sql);
+            List<BillStatistic> result = new List<BillStatistic> ();
+            foreach (var row in table.Rows)
+                result.Add(new BillStatistic ((DataRow)row));
+            return result;
+        }
+
+        public int InsertBill(int idTable) // Chèn bill vào một bàn (cho bởi Id của bàn đó)
+        {
+            String sql = "INSERT INTO dbo.bill (datecheckout, idTable, status) VALUES (NULL, "+idTable+", 0) UPDATE dbo.TableFood SET status='co nguoi' WHERE id="+idTable;
+            DataProvider.Instance.ExecuteScalar(sql);
+            // Gửi lại id Bill mới
+            return GetUncheckedBillIDByTableID (idTable);
+        }
+
+        private int __faceRemoveBillByTable (int idTable)
+        {
+            int billId = GetUncheckedBillIDByTableID(idTable);
+            if (billId == -1)
+                return -1;
+
+            String sql = "UPDATE dbo.bill SET status=1 WHERE id=" + billId + " UPDATE dbo.tablefood SET status='trong' WHERE id=" + idTable;
+            DataProvider.Instance.ExecuteScalar(sql);
+
+            return billId;
+        }
+        public int checkOut (int idTable)
+        {
+            int billId = GetUncheckedBillIDByTableID(idTable);
+            if (billId == -1)
+                return -1;
+
+            String sql = "UPDATE dbo.bill SET DateCheckOut=GetDate() WHERE id=" + billId; 
+            // Chèn ngày cho việc Thanh Toán Bill
+            DataProvider.Instance.ExecuteScalar(sql);
+            // Lặp lại chỗ này cũng ko hay lắm, nhưng vì tốc độ viết chương trình :)
+            return __faceRemoveBillByTable(idTable);
+        }
+
+        public int moveToTable (int idTable, int idTableMovedTo)
+        {
+            int billId = __faceRemoveBillByTable(idTable); // thực ra đặt là fromBill thì đúng hơn :)
+            if (billId == -1)
+                return -1;
+            int toBill = GetUncheckedBillIDByTableID(idTable);
+            if (toBill != -1) // Ở đó đang có người ngồi 
+            {
+                // Gộp bill
+                String sql = "UPDATE dbo.billinfo SET idBill=" + toBill + " WHERE idBill=" + billId;
+                DataProvider.Instance.ExecuteScalar(sql);
+            } else
+            {
+                // Này dễ hơn, chỉ cần sửa cái bàn là xong:)
+                String sql = "UPDATE dbo.bill SET status=0, idTable=" + idTableMovedTo + " WHERE id=" + billId 
+                    + " UPDATE dbo.TableFood SET status='co nguoi' WHERE id="+idTableMovedTo;
+                DataProvider.Instance.ExecuteScalar(sql); 
+            }
+            return idTableMovedTo;
+        }
     }
+
+    
 }
