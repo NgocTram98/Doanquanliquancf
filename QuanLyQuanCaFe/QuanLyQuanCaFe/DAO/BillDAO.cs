@@ -34,17 +34,17 @@ namespace QuanLyQuanCaFe.DAO
 
         // Thất bại trả về -1
         // Sao không raise exception nhỉ :), nhằng
-        public int GetUncheckedBillIDByTableID (int idTable)
+        public int GetUncheckedBillIDByTableID(int idTable)
         {
             String sql = "select * from dbo.bill where idtable = " + idTable + " and status = 0";
             DataTable table = DataProvider.Instance.ExecuteQuery(sql);
-            if (table.Rows.Count>0)
+            if (table.Rows.Count > 0)
             {
                 Bill bill = new Bill(table.Rows[0]);
                 return bill.Id;
             }
             return -1;
         }
-
+        
     }
 }

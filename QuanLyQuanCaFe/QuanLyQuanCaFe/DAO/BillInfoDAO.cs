@@ -16,7 +16,6 @@ namespace QuanLyQuanCaFe.DAO
         
         public BillInfoDAO ()
         {
-
         }
 
         public List<BillInfo> GetBillInfos (int id)
