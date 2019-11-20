@@ -47,14 +47,14 @@ namespace QuanLyQuanCaFe.DAO
 
         public List<BillStatistic> GetAllBillRegardsPeriodOfTime(DateTime? DateCheckIn, DateTime? DateCheckOut)
         {
-            String sql = "SELECT bill.id, bill.datecheckin, bill.datecheckout, bill.status, SUM (billinfo.count*food.price) AS sum "
-                +" FROM dbo.bill, dbo.billinfo, dbo.Food "
+            String sql = "SELECT bill.id, bill.datecheckin, bill.datecheckout, bill.status, bill.discount, SUM (billinfo.count*food.price)*(100-bill.discount)/100 AS sum "
+                + " FROM dbo.bill, dbo.billinfo, dbo.Food "
                 +" WHERE dbo.billinfo.idBill = dbo.bill.id "
                 +" AND dbo.billinfo.idFood = dbo.food.id "
-                + "GROUP BY dbo.bill.id, bill.datecheckin, bill.datecheckout, bill.status "
+                + "GROUP BY dbo.bill.id, bill.datecheckin, bill.datecheckout, bill.status,bill.discount "
                 + "HAVING bill.datecheckin >= '"+DateCheckIn.Value.ToShortDateString() + "' AND(bill.datecheckout <= '" + DateCheckOut.Value.ToShortDateString() 
                 + "' OR ISNULL(bill.datecheckout, '') = '')";
-            
+            Console.WriteLine(sql);
             DataTable table = DataProvider.Instance.ExecuteQuery(sql);
             List<BillStatistic> result = new List<BillStatistic> ();
             foreach (var row in table.Rows)
@@ -81,13 +81,13 @@ namespace QuanLyQuanCaFe.DAO
 
             return billId;
         }
-        public int checkOut (int idTable)
+        public int checkOut (int idTable, int discount)
         {
             int billId = GetUncheckedBillIDByTableID(idTable);
             if (billId == -1)
                 return -1;
 
-            String sql = "UPDATE dbo.bill SET DateCheckOut=GetDate() WHERE id=" + billId; 
+            String sql = "UPDATE dbo.bill SET discount=" + discount+ "DateCheckOut=GetDate() WHERE id=" + billId; 
             // Chèn ngày cho việc Thanh Toán Bill
             DataProvider.Instance.ExecuteScalar(sql);
             // Lặp lại chỗ này cũng ko hay lắm, nhưng vì tốc độ viết chương trình :)

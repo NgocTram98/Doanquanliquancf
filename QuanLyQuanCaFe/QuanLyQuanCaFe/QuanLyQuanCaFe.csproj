@@ -85,6 +85,31 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuanlycafeDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanlycafeDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QuanlycafeDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanlycafeDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QuanlycafeDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanlycafeDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QuanlycafeDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanlycafeDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QuanlycafeDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanlycafeDataSet4.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="fAccountProfile.resx">
       <DependentUpon>fAccountProfile.cs</DependentUpon>
     </EmbeddedResource>
@@ -115,6 +140,61 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="QuanlycafeDataSet.xsc">
+      <DependentUpon>QuanlycafeDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="QuanlycafeDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QuanlycafeDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QuanlycafeDataSet.xss">
+      <DependentUpon>QuanlycafeDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="QuanlycafeDataSet1.xsc">
+      <DependentUpon>QuanlycafeDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="QuanlycafeDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QuanlycafeDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QuanlycafeDataSet1.xss">
+      <DependentUpon>QuanlycafeDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="QuanlycafeDataSet2.xsc">
+      <DependentUpon>QuanlycafeDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="QuanlycafeDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QuanlycafeDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QuanlycafeDataSet2.xss">
+      <DependentUpon>QuanlycafeDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="QuanlycafeDataSet3.xsc">
+      <DependentUpon>QuanlycafeDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="QuanlycafeDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QuanlycafeDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QuanlycafeDataSet3.xss">
+      <DependentUpon>QuanlycafeDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="QuanlycafeDataSet4.xsc">
+      <DependentUpon>QuanlycafeDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="QuanlycafeDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QuanlycafeDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QuanlycafeDataSet4.xss">
+      <DependentUpon>QuanlycafeDataSet4.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

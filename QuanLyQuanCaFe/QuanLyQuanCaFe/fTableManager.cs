@@ -191,7 +191,8 @@ namespace QuanLyQuanCaFe
             {
                 if (MessageBox.Show("Số tiền: " + lbTongTien.Text + Environment.NewLine+" Bạn có chắc muốn thanh toán đơn?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    BillDAO.Instance.checkOut(currentTableId);
+                    int discount = (int) nmDisCount.Value;
+                    BillDAO.Instance.checkOut(currentTableId, discount);
                     LoadTable();
                     UpdateChange(currentTableId);
                 }

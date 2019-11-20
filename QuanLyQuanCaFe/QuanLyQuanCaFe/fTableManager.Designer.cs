@@ -208,18 +208,8 @@
             // 
             // nmDisCount
             // 
-            this.nmDisCount.Increment = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
             this.nmDisCount.Location = new System.Drawing.Point(86, 27);
             this.nmDisCount.Margin = new System.Windows.Forms.Padding(2);
-            this.nmDisCount.Maximum = new decimal(new int[] {
-            1000000,
-            0,
-            0,
-            0});
             this.nmDisCount.Name = "nmDisCount";
             this.nmDisCount.Size = new System.Drawing.Size(80, 20);
             this.nmDisCount.TabIndex = 5;

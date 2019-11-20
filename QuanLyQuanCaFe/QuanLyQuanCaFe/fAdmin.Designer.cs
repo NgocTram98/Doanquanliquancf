@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tcAdmin = new System.Windows.Forms.TabControl();
             this.tpBill = new System.Windows.Forms.TabPage();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -48,7 +49,7 @@
             this.cbFoodCategory = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.txbFoodName = new System.Windows.Forms.TextBox();
+            this.txtFoodName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.txbFoodID = new System.Windows.Forms.TextBox();
@@ -112,11 +113,35 @@
             this.btnAddAccount = new System.Windows.Forms.Button();
             this.panel28 = new System.Windows.Forms.Panel();
             this.dtgvAccount = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quanlycafeDataSet = new QuanLyQuanCaFe.QuanlycafeDataSet();
+            this.foodBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.foodTableAdapter = new QuanLyQuanCaFe.QuanlycafeDataSetTableAdapters.FoodTableAdapter();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idCategoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quanlycafeDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.quanlycafeDataSet1 = new QuanLyQuanCaFe.QuanlycafeDataSet1();
+            this.foodCategoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.foodCategoryTableAdapter = new QuanLyQuanCaFe.QuanlycafeDataSet1TableAdapters.FoodCategoryTableAdapter();
+            this.quanlycafeDataSet2 = new QuanLyQuanCaFe.QuanlycafeDataSet2();
+            this.foodCategoryBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.foodCategoryTableAdapter1 = new QuanLyQuanCaFe.QuanlycafeDataSet2TableAdapters.FoodCategoryTableAdapter();
+            this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quanlycafeDataSet3 = new QuanLyQuanCaFe.QuanlycafeDataSet3();
+            this.tableFoodBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tableFoodTableAdapter = new QuanLyQuanCaFe.QuanlycafeDataSet3TableAdapters.TableFoodTableAdapter();
+            this.idDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quanlycafeDataSet4 = new QuanLyQuanCaFe.QuanlycafeDataSet4();
+            this.accountBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.accountTableAdapter = new QuanLyQuanCaFe.QuanlycafeDataSet4TableAdapters.AccountTableAdapter();
+            this.userNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.displayNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.passWordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tcAdmin.SuspendLayout();
             this.tpBill.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -156,6 +181,17 @@
             this.panel27.SuspendLayout();
             this.panel28.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvAccount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quanlycafeDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.foodBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quanlycafeDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quanlycafeDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.foodCategoryBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quanlycafeDataSet2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.foodCategoryBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quanlycafeDataSet3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tableFoodBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quanlycafeDataSet4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.accountBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tcAdmin
@@ -166,7 +202,7 @@
             this.tcAdmin.Controls.Add(this.tpTable);
             this.tcAdmin.Controls.Add(this.tpAccount);
             this.tcAdmin.Location = new System.Drawing.Point(9, 10);
-            this.tcAdmin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tcAdmin.Margin = new System.Windows.Forms.Padding(2);
             this.tcAdmin.Name = "tcAdmin";
             this.tcAdmin.SelectedIndex = 0;
             this.tcAdmin.Size = new System.Drawing.Size(635, 530);
@@ -177,9 +213,9 @@
             this.tpBill.Controls.Add(this.panel4);
             this.tpBill.Controls.Add(this.panel3);
             this.tpBill.Location = new System.Drawing.Point(4, 22);
-            this.tpBill.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tpBill.Margin = new System.Windows.Forms.Padding(2);
             this.tpBill.Name = "tpBill";
-            this.tpBill.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tpBill.Padding = new System.Windows.Forms.Padding(2);
             this.tpBill.Size = new System.Drawing.Size(627, 504);
             this.tpBill.TabIndex = 0;
             this.tpBill.Text = "Doanh thu";
@@ -191,7 +227,7 @@
             this.panel4.Controls.Add(this.dtpkToDate);
             this.panel4.Controls.Add(this.dtpkFromDate);
             this.panel4.Location = new System.Drawing.Point(4, 5);
-            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(620, 24);
             this.panel4.TabIndex = 2;
@@ -199,7 +235,7 @@
             // btnViewBill
             // 
             this.btnViewBill.Location = new System.Drawing.Point(272, 0);
-            this.btnViewBill.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnViewBill.Margin = new System.Windows.Forms.Padding(2);
             this.btnViewBill.Name = "btnViewBill";
             this.btnViewBill.Size = new System.Drawing.Size(65, 22);
             this.btnViewBill.TabIndex = 2;
@@ -210,7 +246,7 @@
             // dtpkToDate
             // 
             this.dtpkToDate.Location = new System.Drawing.Point(438, 2);
-            this.dtpkToDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpkToDate.Margin = new System.Windows.Forms.Padding(2);
             this.dtpkToDate.Name = "dtpkToDate";
             this.dtpkToDate.Size = new System.Drawing.Size(181, 20);
             this.dtpkToDate.TabIndex = 1;
@@ -218,7 +254,7 @@
             // dtpkFromDate
             // 
             this.dtpkFromDate.Location = new System.Drawing.Point(2, 2);
-            this.dtpkFromDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpkFromDate.Margin = new System.Windows.Forms.Padding(2);
             this.dtpkFromDate.Name = "dtpkFromDate";
             this.dtpkFromDate.Size = new System.Drawing.Size(180, 20);
             this.dtpkFromDate.TabIndex = 0;
@@ -227,7 +263,7 @@
             // 
             this.panel3.Controls.Add(this.dtgvBill);
             this.panel3.Location = new System.Drawing.Point(4, 33);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(620, 468);
             this.panel3.TabIndex = 1;
@@ -235,14 +271,8 @@
             // dtgvBill
             // 
             this.dtgvBill.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvBill.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column3,
-            this.Column2,
-            this.Column4,
-            this.Column5});
             this.dtgvBill.Location = new System.Drawing.Point(2, 2);
-            this.dtgvBill.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtgvBill.Margin = new System.Windows.Forms.Padding(2);
             this.dtgvBill.Name = "dtgvBill";
             this.dtgvBill.RowTemplate.Height = 24;
             this.dtgvBill.Size = new System.Drawing.Size(616, 463);
@@ -255,9 +285,9 @@
             this.tpFood.Controls.Add(this.panel6);
             this.tpFood.Controls.Add(this.panel5);
             this.tpFood.Location = new System.Drawing.Point(4, 22);
-            this.tpFood.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tpFood.Margin = new System.Windows.Forms.Padding(2);
             this.tpFood.Name = "tpFood";
-            this.tpFood.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tpFood.Padding = new System.Windows.Forms.Padding(2);
             this.tpFood.Size = new System.Drawing.Size(627, 504);
             this.tpFood.TabIndex = 1;
             this.tpFood.Text = "Thức ăn";
@@ -268,7 +298,7 @@
             this.panel8.Controls.Add(this.txbSearchFoodName);
             this.panel8.Controls.Add(this.btnSearchFood);
             this.panel8.Location = new System.Drawing.Point(352, 5);
-            this.panel8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel8.Margin = new System.Windows.Forms.Padding(2);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(273, 54);
             this.panel8.TabIndex = 3;
@@ -276,7 +306,7 @@
             // txbSearchFoodName
             // 
             this.txbSearchFoodName.Location = new System.Drawing.Point(2, 20);
-            this.txbSearchFoodName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txbSearchFoodName.Margin = new System.Windows.Forms.Padding(2);
             this.txbSearchFoodName.Name = "txbSearchFoodName";
             this.txbSearchFoodName.Size = new System.Drawing.Size(200, 20);
             this.txbSearchFoodName.TabIndex = 2;
@@ -284,12 +314,13 @@
             // btnSearchFood
             // 
             this.btnSearchFood.Location = new System.Drawing.Point(206, 2);
-            this.btnSearchFood.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSearchFood.Margin = new System.Windows.Forms.Padding(2);
             this.btnSearchFood.Name = "btnSearchFood";
             this.btnSearchFood.Size = new System.Drawing.Size(64, 50);
             this.btnSearchFood.TabIndex = 1;
             this.btnSearchFood.Text = "Tìm";
             this.btnSearchFood.UseVisualStyleBackColor = true;
+            this.btnSearchFood.Click += new System.EventHandler(this.BtnSearchFood_Click);
             // 
             // panel7
             // 
@@ -298,7 +329,7 @@
             this.panel7.Controls.Add(this.panel10);
             this.panel7.Controls.Add(this.panel9);
             this.panel7.Location = new System.Drawing.Point(352, 64);
-            this.panel7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel7.Margin = new System.Windows.Forms.Padding(2);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(273, 437);
             this.panel7.TabIndex = 2;
@@ -308,15 +339,16 @@
             this.panel12.Controls.Add(this.nmFoodPrice);
             this.panel12.Controls.Add(this.label4);
             this.panel12.Location = new System.Drawing.Point(2, 129);
-            this.panel12.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel12.Margin = new System.Windows.Forms.Padding(2);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(268, 37);
             this.panel12.TabIndex = 4;
             // 
             // nmFoodPrice
             // 
+            this.nmFoodPrice.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.foodBindingSource, "price", true));
             this.nmFoodPrice.Location = new System.Drawing.Point(91, 10);
-            this.nmFoodPrice.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.nmFoodPrice.Margin = new System.Windows.Forms.Padding(2);
             this.nmFoodPrice.Maximum = new decimal(new int[] {
             100000000,
             0,
@@ -342,19 +374,25 @@
             this.panel11.Controls.Add(this.cbFoodCategory);
             this.panel11.Controls.Add(this.label3);
             this.panel11.Location = new System.Drawing.Point(2, 87);
-            this.panel11.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel11.Margin = new System.Windows.Forms.Padding(2);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(268, 37);
             this.panel11.TabIndex = 3;
             // 
             // cbFoodCategory
             // 
+            this.cbFoodCategory.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.foodBindingSource, "idCategory", true));
+            this.cbFoodCategory.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.foodBindingSource, "idCategory", true));
+            this.cbFoodCategory.DataSource = this.foodCategoryBindingSource;
+            this.cbFoodCategory.DisplayMember = "name";
             this.cbFoodCategory.FormattingEnabled = true;
             this.cbFoodCategory.Location = new System.Drawing.Point(91, 9);
-            this.cbFoodCategory.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbFoodCategory.Margin = new System.Windows.Forms.Padding(2);
             this.cbFoodCategory.Name = "cbFoodCategory";
             this.cbFoodCategory.Size = new System.Drawing.Size(176, 21);
             this.cbFoodCategory.TabIndex = 1;
+            this.cbFoodCategory.ValueMember = "id";
+            this.cbFoodCategory.SelectedIndexChanged += new System.EventHandler(this.CbFoodCategory_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -369,21 +407,23 @@
             // 
             // panel10
             // 
-            this.panel10.Controls.Add(this.txbFoodName);
+            this.panel10.Controls.Add(this.txtFoodName);
             this.panel10.Controls.Add(this.label2);
             this.panel10.Location = new System.Drawing.Point(2, 45);
-            this.panel10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel10.Margin = new System.Windows.Forms.Padding(2);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(268, 37);
             this.panel10.TabIndex = 2;
             // 
-            // txbFoodName
+            // txtFoodName
             // 
-            this.txbFoodName.Location = new System.Drawing.Point(91, 11);
-            this.txbFoodName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txbFoodName.Name = "txbFoodName";
-            this.txbFoodName.Size = new System.Drawing.Size(176, 20);
-            this.txbFoodName.TabIndex = 1;
+            this.txtFoodName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.foodBindingSource, "name", true));
+            this.txtFoodName.Location = new System.Drawing.Point(91, 11);
+            this.txtFoodName.Margin = new System.Windows.Forms.Padding(2);
+            this.txtFoodName.Name = "txtFoodName";
+            this.txtFoodName.Size = new System.Drawing.Size(176, 20);
+            this.txtFoodName.TabIndex = 1;
+            this.txtFoodName.TextChanged += new System.EventHandler(this.TxbFoodName_TextChanged);
             // 
             // label2
             // 
@@ -401,15 +441,16 @@
             this.panel9.Controls.Add(this.txbFoodID);
             this.panel9.Controls.Add(this.label1);
             this.panel9.Location = new System.Drawing.Point(2, 2);
-            this.panel9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel9.Margin = new System.Windows.Forms.Padding(2);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(268, 37);
             this.panel9.TabIndex = 1;
             // 
             // txbFoodID
             // 
+            this.txbFoodID.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.foodBindingSource, "id", true));
             this.txbFoodID.Location = new System.Drawing.Point(91, 11);
-            this.txbFoodID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txbFoodID.Margin = new System.Windows.Forms.Padding(2);
             this.txbFoodID.Name = "txbFoodID";
             this.txbFoodID.ReadOnly = true;
             this.txbFoodID.Size = new System.Drawing.Size(176, 20);
@@ -433,25 +474,26 @@
             this.panel6.Controls.Add(this.btnDeleteFood);
             this.panel6.Controls.Add(this.btnAddFood);
             this.panel6.Location = new System.Drawing.Point(4, 5);
-            this.panel6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel6.Margin = new System.Windows.Forms.Padding(2);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(343, 54);
             this.panel6.TabIndex = 1;
             // 
             // btnShowFood
             // 
-            this.btnShowFood.Location = new System.Drawing.Point(209, 2);
-            this.btnShowFood.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnShowFood.Location = new System.Drawing.Point(276, 2);
+            this.btnShowFood.Margin = new System.Windows.Forms.Padding(2);
             this.btnShowFood.Name = "btnShowFood";
             this.btnShowFood.Size = new System.Drawing.Size(64, 50);
             this.btnShowFood.TabIndex = 1;
             this.btnShowFood.Text = "Xem";
             this.btnShowFood.UseVisualStyleBackColor = true;
+            this.btnShowFood.Click += new System.EventHandler(this.BtnShowFood_Click);
             // 
             // btnEditFood
             // 
-            this.btnEditFood.Location = new System.Drawing.Point(140, 2);
-            this.btnEditFood.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEditFood.Location = new System.Drawing.Point(208, 2);
+            this.btnEditFood.Margin = new System.Windows.Forms.Padding(2);
             this.btnEditFood.Name = "btnEditFood";
             this.btnEditFood.Size = new System.Drawing.Size(64, 50);
             this.btnEditFood.TabIndex = 2;
@@ -461,7 +503,7 @@
             // btnDeleteFood
             // 
             this.btnDeleteFood.Location = new System.Drawing.Point(71, 2);
-            this.btnDeleteFood.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDeleteFood.Margin = new System.Windows.Forms.Padding(2);
             this.btnDeleteFood.Name = "btnDeleteFood";
             this.btnDeleteFood.Size = new System.Drawing.Size(64, 50);
             this.btnDeleteFood.TabIndex = 1;
@@ -471,29 +513,38 @@
             // btnAddFood
             // 
             this.btnAddFood.Location = new System.Drawing.Point(2, 2);
-            this.btnAddFood.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAddFood.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddFood.Name = "btnAddFood";
             this.btnAddFood.Size = new System.Drawing.Size(64, 50);
             this.btnAddFood.TabIndex = 0;
             this.btnAddFood.Text = "Thêm";
             this.btnAddFood.UseVisualStyleBackColor = true;
+            this.btnAddFood.Click += new System.EventHandler(this.BtnAddFood_Click);
             // 
             // panel5
             // 
             this.panel5.Controls.Add(this.dtgvFood);
             this.panel5.Location = new System.Drawing.Point(4, 64);
-            this.panel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel5.Margin = new System.Windows.Forms.Padding(2);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(343, 437);
             this.panel5.TabIndex = 0;
             // 
             // dtgvFood
             // 
+            this.dtgvFood.AutoGenerateColumns = false;
             this.dtgvFood.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvFood.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.nameDataGridViewTextBoxColumn,
+            this.priceDataGridViewTextBoxColumn,
+            this.idCategoryDataGridViewTextBoxColumn});
+            this.dtgvFood.DataSource = this.foodBindingSource;
             this.dtgvFood.Location = new System.Drawing.Point(2, 2);
-            this.dtgvFood.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtgvFood.Margin = new System.Windows.Forms.Padding(2);
             this.dtgvFood.Name = "dtgvFood";
             this.dtgvFood.RowTemplate.Height = 24;
+            this.dtgvFood.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgvFood.Size = new System.Drawing.Size(338, 432);
             this.dtgvFood.TabIndex = 0;
             // 
@@ -503,9 +554,9 @@
             this.tbFoodCategory.Controls.Add(this.panel16);
             this.tbFoodCategory.Controls.Add(this.panel17);
             this.tbFoodCategory.Location = new System.Drawing.Point(4, 22);
-            this.tbFoodCategory.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbFoodCategory.Margin = new System.Windows.Forms.Padding(2);
             this.tbFoodCategory.Name = "tbFoodCategory";
-            this.tbFoodCategory.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbFoodCategory.Padding = new System.Windows.Forms.Padding(2);
             this.tbFoodCategory.Size = new System.Drawing.Size(627, 504);
             this.tbFoodCategory.TabIndex = 2;
             this.tbFoodCategory.Text = "Danh mục";
@@ -516,7 +567,7 @@
             this.panel1.Controls.Add(this.panel14);
             this.panel1.Controls.Add(this.panel15);
             this.panel1.Location = new System.Drawing.Point(352, 64);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(273, 437);
             this.panel1.TabIndex = 5;
@@ -526,15 +577,16 @@
             this.panel14.Controls.Add(this.textBox1);
             this.panel14.Controls.Add(this.label7);
             this.panel14.Location = new System.Drawing.Point(2, 45);
-            this.panel14.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel14.Margin = new System.Windows.Forms.Padding(2);
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(268, 37);
             this.panel14.TabIndex = 2;
             // 
             // textBox1
             // 
+            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.foodCategoryBindingSource1, "name", true));
             this.textBox1.Location = new System.Drawing.Point(121, 11);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(146, 20);
             this.textBox1.TabIndex = 1;
@@ -555,15 +607,16 @@
             this.panel15.Controls.Add(this.txbCategoryID);
             this.panel15.Controls.Add(this.label8);
             this.panel15.Location = new System.Drawing.Point(2, 2);
-            this.panel15.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel15.Margin = new System.Windows.Forms.Padding(2);
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(268, 37);
             this.panel15.TabIndex = 1;
             // 
             // txbCategoryID
             // 
+            this.txbCategoryID.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.foodCategoryBindingSource1, "id", true));
             this.txbCategoryID.Location = new System.Drawing.Point(121, 11);
-            this.txbCategoryID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txbCategoryID.Margin = new System.Windows.Forms.Padding(2);
             this.txbCategoryID.Name = "txbCategoryID";
             this.txbCategoryID.ReadOnly = true;
             this.txbCategoryID.Size = new System.Drawing.Size(146, 20);
@@ -587,7 +640,7 @@
             this.panel16.Controls.Add(this.btnDeleteCategory);
             this.panel16.Controls.Add(this.btnAddCategory);
             this.panel16.Location = new System.Drawing.Point(4, 5);
-            this.panel16.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel16.Margin = new System.Windows.Forms.Padding(2);
             this.panel16.Name = "panel16";
             this.panel16.Size = new System.Drawing.Size(343, 54);
             this.panel16.TabIndex = 4;
@@ -595,7 +648,7 @@
             // btnShowCategory
             // 
             this.btnShowCategory.Location = new System.Drawing.Point(209, 2);
-            this.btnShowCategory.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnShowCategory.Margin = new System.Windows.Forms.Padding(2);
             this.btnShowCategory.Name = "btnShowCategory";
             this.btnShowCategory.Size = new System.Drawing.Size(64, 50);
             this.btnShowCategory.TabIndex = 1;
@@ -605,7 +658,7 @@
             // btnEditCategory
             // 
             this.btnEditCategory.Location = new System.Drawing.Point(140, 2);
-            this.btnEditCategory.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEditCategory.Margin = new System.Windows.Forms.Padding(2);
             this.btnEditCategory.Name = "btnEditCategory";
             this.btnEditCategory.Size = new System.Drawing.Size(64, 50);
             this.btnEditCategory.TabIndex = 2;
@@ -615,7 +668,7 @@
             // btnDeleteCategory
             // 
             this.btnDeleteCategory.Location = new System.Drawing.Point(71, 2);
-            this.btnDeleteCategory.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDeleteCategory.Margin = new System.Windows.Forms.Padding(2);
             this.btnDeleteCategory.Name = "btnDeleteCategory";
             this.btnDeleteCategory.Size = new System.Drawing.Size(64, 50);
             this.btnDeleteCategory.TabIndex = 1;
@@ -625,7 +678,7 @@
             // btnAddCategory
             // 
             this.btnAddCategory.Location = new System.Drawing.Point(2, 2);
-            this.btnAddCategory.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAddCategory.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddCategory.Name = "btnAddCategory";
             this.btnAddCategory.Size = new System.Drawing.Size(64, 50);
             this.btnAddCategory.TabIndex = 0;
@@ -636,18 +689,24 @@
             // 
             this.panel17.Controls.Add(this.dtgvCategory);
             this.panel17.Location = new System.Drawing.Point(4, 64);
-            this.panel17.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel17.Margin = new System.Windows.Forms.Padding(2);
             this.panel17.Name = "panel17";
             this.panel17.Size = new System.Drawing.Size(343, 437);
             this.panel17.TabIndex = 3;
             // 
             // dtgvCategory
             // 
+            this.dtgvCategory.AutoGenerateColumns = false;
             this.dtgvCategory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvCategory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn1,
+            this.nameDataGridViewTextBoxColumn1});
+            this.dtgvCategory.DataSource = this.foodCategoryBindingSource1;
             this.dtgvCategory.Location = new System.Drawing.Point(2, 2);
-            this.dtgvCategory.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtgvCategory.Margin = new System.Windows.Forms.Padding(2);
             this.dtgvCategory.Name = "dtgvCategory";
             this.dtgvCategory.RowTemplate.Height = 24;
+            this.dtgvCategory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgvCategory.Size = new System.Drawing.Size(338, 432);
             this.dtgvCategory.TabIndex = 0;
             // 
@@ -657,9 +716,9 @@
             this.tpTable.Controls.Add(this.panel19);
             this.tpTable.Controls.Add(this.panel20);
             this.tpTable.Location = new System.Drawing.Point(4, 22);
-            this.tpTable.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tpTable.Margin = new System.Windows.Forms.Padding(2);
             this.tpTable.Name = "tpTable";
-            this.tpTable.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tpTable.Padding = new System.Windows.Forms.Padding(2);
             this.tpTable.Size = new System.Drawing.Size(627, 504);
             this.tpTable.TabIndex = 3;
             this.tpTable.Text = "Bàn ăn";
@@ -671,7 +730,7 @@
             this.panel2.Controls.Add(this.panel13);
             this.panel2.Controls.Add(this.panel18);
             this.panel2.Location = new System.Drawing.Point(352, 64);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(273, 437);
             this.panel2.TabIndex = 8;
@@ -681,16 +740,20 @@
             this.panel21.Controls.Add(this.cbTableStatus);
             this.panel21.Controls.Add(this.label9);
             this.panel21.Location = new System.Drawing.Point(2, 87);
-            this.panel21.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel21.Margin = new System.Windows.Forms.Padding(2);
             this.panel21.Name = "panel21";
             this.panel21.Size = new System.Drawing.Size(268, 37);
             this.panel21.TabIndex = 3;
             // 
             // cbTableStatus
             // 
+            this.cbTableStatus.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tableFoodBindingSource, "status", true));
             this.cbTableStatus.FormattingEnabled = true;
+            this.cbTableStatus.Items.AddRange(new object[] {
+            "0",
+            "1"});
             this.cbTableStatus.Location = new System.Drawing.Point(112, 9);
-            this.cbTableStatus.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbTableStatus.Margin = new System.Windows.Forms.Padding(2);
             this.cbTableStatus.Name = "cbTableStatus";
             this.cbTableStatus.Size = new System.Drawing.Size(156, 21);
             this.cbTableStatus.TabIndex = 2;
@@ -711,15 +774,16 @@
             this.panel13.Controls.Add(this.txbTableName);
             this.panel13.Controls.Add(this.label5);
             this.panel13.Location = new System.Drawing.Point(2, 45);
-            this.panel13.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel13.Margin = new System.Windows.Forms.Padding(2);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(268, 37);
             this.panel13.TabIndex = 2;
             // 
             // txbTableName
             // 
+            this.txbTableName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tableFoodBindingSource, "name", true));
             this.txbTableName.Location = new System.Drawing.Point(112, 11);
-            this.txbTableName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txbTableName.Margin = new System.Windows.Forms.Padding(2);
             this.txbTableName.Name = "txbTableName";
             this.txbTableName.Size = new System.Drawing.Size(156, 20);
             this.txbTableName.TabIndex = 1;
@@ -740,15 +804,16 @@
             this.panel18.Controls.Add(this.textBox3);
             this.panel18.Controls.Add(this.label6);
             this.panel18.Location = new System.Drawing.Point(2, 2);
-            this.panel18.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel18.Margin = new System.Windows.Forms.Padding(2);
             this.panel18.Name = "panel18";
             this.panel18.Size = new System.Drawing.Size(268, 37);
             this.panel18.TabIndex = 1;
             // 
             // textBox3
             // 
+            this.textBox3.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tableFoodBindingSource, "id", true));
             this.textBox3.Location = new System.Drawing.Point(112, 11);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(2);
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
             this.textBox3.Size = new System.Drawing.Size(156, 20);
@@ -772,7 +837,7 @@
             this.panel19.Controls.Add(this.btnDeleteTable);
             this.panel19.Controls.Add(this.btnAddTable);
             this.panel19.Location = new System.Drawing.Point(4, 5);
-            this.panel19.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel19.Margin = new System.Windows.Forms.Padding(2);
             this.panel19.Name = "panel19";
             this.panel19.Size = new System.Drawing.Size(343, 54);
             this.panel19.TabIndex = 7;
@@ -780,7 +845,7 @@
             // btnShowTable
             // 
             this.btnShowTable.Location = new System.Drawing.Point(209, 2);
-            this.btnShowTable.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnShowTable.Margin = new System.Windows.Forms.Padding(2);
             this.btnShowTable.Name = "btnShowTable";
             this.btnShowTable.Size = new System.Drawing.Size(64, 50);
             this.btnShowTable.TabIndex = 1;
@@ -790,7 +855,7 @@
             // btnEditTable
             // 
             this.btnEditTable.Location = new System.Drawing.Point(140, 2);
-            this.btnEditTable.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEditTable.Margin = new System.Windows.Forms.Padding(2);
             this.btnEditTable.Name = "btnEditTable";
             this.btnEditTable.Size = new System.Drawing.Size(64, 50);
             this.btnEditTable.TabIndex = 2;
@@ -800,7 +865,7 @@
             // btnDeleteTable
             // 
             this.btnDeleteTable.Location = new System.Drawing.Point(71, 2);
-            this.btnDeleteTable.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDeleteTable.Margin = new System.Windows.Forms.Padding(2);
             this.btnDeleteTable.Name = "btnDeleteTable";
             this.btnDeleteTable.Size = new System.Drawing.Size(64, 50);
             this.btnDeleteTable.TabIndex = 1;
@@ -810,7 +875,7 @@
             // btnAddTable
             // 
             this.btnAddTable.Location = new System.Drawing.Point(2, 2);
-            this.btnAddTable.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAddTable.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddTable.Name = "btnAddTable";
             this.btnAddTable.Size = new System.Drawing.Size(64, 50);
             this.btnAddTable.TabIndex = 0;
@@ -821,18 +886,25 @@
             // 
             this.panel20.Controls.Add(this.dtgvTable);
             this.panel20.Location = new System.Drawing.Point(4, 64);
-            this.panel20.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel20.Margin = new System.Windows.Forms.Padding(2);
             this.panel20.Name = "panel20";
             this.panel20.Size = new System.Drawing.Size(343, 437);
             this.panel20.TabIndex = 6;
             // 
             // dtgvTable
             // 
+            this.dtgvTable.AutoGenerateColumns = false;
             this.dtgvTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn2,
+            this.nameDataGridViewTextBoxColumn2,
+            this.statusDataGridViewTextBoxColumn});
+            this.dtgvTable.DataSource = this.tableFoodBindingSource;
             this.dtgvTable.Location = new System.Drawing.Point(2, 2);
-            this.dtgvTable.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtgvTable.Margin = new System.Windows.Forms.Padding(2);
             this.dtgvTable.Name = "dtgvTable";
             this.dtgvTable.RowTemplate.Height = 24;
+            this.dtgvTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgvTable.Size = new System.Drawing.Size(338, 432);
             this.dtgvTable.TabIndex = 0;
             // 
@@ -842,9 +914,9 @@
             this.tpAccount.Controls.Add(this.panel27);
             this.tpAccount.Controls.Add(this.panel28);
             this.tpAccount.Location = new System.Drawing.Point(4, 22);
-            this.tpAccount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tpAccount.Margin = new System.Windows.Forms.Padding(2);
             this.tpAccount.Name = "tpAccount";
-            this.tpAccount.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tpAccount.Padding = new System.Windows.Forms.Padding(2);
             this.tpAccount.Size = new System.Drawing.Size(627, 504);
             this.tpAccount.TabIndex = 4;
             this.tpAccount.Text = "Tài khoản";
@@ -857,7 +929,7 @@
             this.panel22.Controls.Add(this.panel25);
             this.panel22.Controls.Add(this.panel26);
             this.panel22.Location = new System.Drawing.Point(352, 64);
-            this.panel22.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel22.Margin = new System.Windows.Forms.Padding(2);
             this.panel22.Name = "panel22";
             this.panel22.Size = new System.Drawing.Size(273, 437);
             this.panel22.TabIndex = 5;
@@ -865,7 +937,7 @@
             // btnResetPassword
             // 
             this.btnResetPassword.Location = new System.Drawing.Point(178, 129);
-            this.btnResetPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnResetPassword.Margin = new System.Windows.Forms.Padding(2);
             this.btnResetPassword.Name = "btnResetPassword";
             this.btnResetPassword.Size = new System.Drawing.Size(92, 28);
             this.btnResetPassword.TabIndex = 4;
@@ -877,16 +949,17 @@
             this.panel24.Controls.Add(this.cbAccountType);
             this.panel24.Controls.Add(this.label11);
             this.panel24.Location = new System.Drawing.Point(2, 87);
-            this.panel24.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel24.Margin = new System.Windows.Forms.Padding(2);
             this.panel24.Name = "panel24";
             this.panel24.Size = new System.Drawing.Size(268, 37);
             this.panel24.TabIndex = 3;
             // 
             // cbAccountType
             // 
+            this.cbAccountType.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.accountBindingSource, "Type", true));
             this.cbAccountType.FormattingEnabled = true;
             this.cbAccountType.Location = new System.Drawing.Point(119, 9);
-            this.cbAccountType.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbAccountType.Margin = new System.Windows.Forms.Padding(2);
             this.cbAccountType.Name = "cbAccountType";
             this.cbAccountType.Size = new System.Drawing.Size(148, 21);
             this.cbAccountType.TabIndex = 1;
@@ -907,15 +980,16 @@
             this.panel25.Controls.Add(this.txbDisplayName);
             this.panel25.Controls.Add(this.label12);
             this.panel25.Location = new System.Drawing.Point(2, 45);
-            this.panel25.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel25.Margin = new System.Windows.Forms.Padding(2);
             this.panel25.Name = "panel25";
             this.panel25.Size = new System.Drawing.Size(268, 37);
             this.panel25.TabIndex = 2;
             // 
             // txbDisplayName
             // 
+            this.txbDisplayName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.accountBindingSource, "UserName", true));
             this.txbDisplayName.Location = new System.Drawing.Point(119, 11);
-            this.txbDisplayName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txbDisplayName.Margin = new System.Windows.Forms.Padding(2);
             this.txbDisplayName.Name = "txbDisplayName";
             this.txbDisplayName.Size = new System.Drawing.Size(148, 20);
             this.txbDisplayName.TabIndex = 1;
@@ -936,15 +1010,16 @@
             this.panel26.Controls.Add(this.txbUserName);
             this.panel26.Controls.Add(this.label13);
             this.panel26.Location = new System.Drawing.Point(2, 2);
-            this.panel26.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel26.Margin = new System.Windows.Forms.Padding(2);
             this.panel26.Name = "panel26";
             this.panel26.Size = new System.Drawing.Size(268, 37);
             this.panel26.TabIndex = 1;
             // 
             // txbUserName
             // 
+            this.txbUserName.DataBindings.Add(new System.Windows.Forms.Binding("Tag", this.accountBindingSource, "UserName", true));
             this.txbUserName.Location = new System.Drawing.Point(119, 11);
-            this.txbUserName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txbUserName.Margin = new System.Windows.Forms.Padding(2);
             this.txbUserName.Name = "txbUserName";
             this.txbUserName.ReadOnly = true;
             this.txbUserName.Size = new System.Drawing.Size(148, 20);
@@ -968,7 +1043,7 @@
             this.panel27.Controls.Add(this.btnDeleteAccount);
             this.panel27.Controls.Add(this.btnAddAccount);
             this.panel27.Location = new System.Drawing.Point(4, 5);
-            this.panel27.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel27.Margin = new System.Windows.Forms.Padding(2);
             this.panel27.Name = "panel27";
             this.panel27.Size = new System.Drawing.Size(343, 54);
             this.panel27.TabIndex = 4;
@@ -976,7 +1051,7 @@
             // btnShowAccount
             // 
             this.btnShowAccount.Location = new System.Drawing.Point(209, 2);
-            this.btnShowAccount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnShowAccount.Margin = new System.Windows.Forms.Padding(2);
             this.btnShowAccount.Name = "btnShowAccount";
             this.btnShowAccount.Size = new System.Drawing.Size(64, 50);
             this.btnShowAccount.TabIndex = 1;
@@ -986,7 +1061,7 @@
             // btnEditAccount
             // 
             this.btnEditAccount.Location = new System.Drawing.Point(140, 2);
-            this.btnEditAccount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEditAccount.Margin = new System.Windows.Forms.Padding(2);
             this.btnEditAccount.Name = "btnEditAccount";
             this.btnEditAccount.Size = new System.Drawing.Size(64, 50);
             this.btnEditAccount.TabIndex = 2;
@@ -996,7 +1071,7 @@
             // btnDeleteAccount
             // 
             this.btnDeleteAccount.Location = new System.Drawing.Point(71, 2);
-            this.btnDeleteAccount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDeleteAccount.Margin = new System.Windows.Forms.Padding(2);
             this.btnDeleteAccount.Name = "btnDeleteAccount";
             this.btnDeleteAccount.Size = new System.Drawing.Size(64, 50);
             this.btnDeleteAccount.TabIndex = 1;
@@ -1006,7 +1081,7 @@
             // btnAddAccount
             // 
             this.btnAddAccount.Location = new System.Drawing.Point(2, 2);
-            this.btnAddAccount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAddAccount.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddAccount.Name = "btnAddAccount";
             this.btnAddAccount.Size = new System.Drawing.Size(64, 50);
             this.btnAddAccount.TabIndex = 0;
@@ -1017,45 +1092,183 @@
             // 
             this.panel28.Controls.Add(this.dtgvAccount);
             this.panel28.Location = new System.Drawing.Point(4, 64);
-            this.panel28.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel28.Margin = new System.Windows.Forms.Padding(2);
             this.panel28.Name = "panel28";
             this.panel28.Size = new System.Drawing.Size(343, 437);
             this.panel28.TabIndex = 3;
             // 
             // dtgvAccount
             // 
+            this.dtgvAccount.AutoGenerateColumns = false;
             this.dtgvAccount.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvAccount.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.userNameDataGridViewTextBoxColumn,
+            this.displayNameDataGridViewTextBoxColumn,
+            this.passWordDataGridViewTextBoxColumn,
+            this.typeDataGridViewTextBoxColumn});
+            this.dtgvAccount.DataSource = this.accountBindingSource;
             this.dtgvAccount.Location = new System.Drawing.Point(2, 2);
-            this.dtgvAccount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtgvAccount.Margin = new System.Windows.Forms.Padding(2);
             this.dtgvAccount.Name = "dtgvAccount";
             this.dtgvAccount.RowTemplate.Height = 24;
             this.dtgvAccount.Size = new System.Drawing.Size(338, 432);
             this.dtgvAccount.TabIndex = 0;
             // 
-            // Column1
+            // quanlycafeDataSet
             // 
-            this.Column1.HeaderText = "Id";
-            this.Column1.Name = "Column1";
+            this.quanlycafeDataSet.DataSetName = "QuanlycafeDataSet";
+            this.quanlycafeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // Column3
+            // foodBindingSource
             // 
-            this.Column3.HeaderText = "Ngày vào";
-            this.Column3.Name = "Column3";
+            this.foodBindingSource.DataMember = "Food";
+            this.foodBindingSource.DataSource = this.quanlycafeDataSet;
             // 
-            // Column2
+            // foodTableAdapter
             // 
-            this.Column2.HeaderText = "Ngày đi";
-            this.Column2.Name = "Column2";
+            this.foodTableAdapter.ClearBeforeFill = true;
             // 
-            // Column4
+            // idDataGridViewTextBoxColumn
             // 
-            this.Column4.HeaderText = "Trạng thái";
-            this.Column4.Name = "Column4";
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // Column5
+            // nameDataGridViewTextBoxColumn
             // 
-            this.Column5.HeaderText = "Tổng tiền";
-            this.Column5.Name = "Column5";
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            // 
+            // priceDataGridViewTextBoxColumn
+            // 
+            this.priceDataGridViewTextBoxColumn.DataPropertyName = "price";
+            this.priceDataGridViewTextBoxColumn.HeaderText = "price";
+            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            // 
+            // idCategoryDataGridViewTextBoxColumn
+            // 
+            this.idCategoryDataGridViewTextBoxColumn.DataPropertyName = "idCategory";
+            this.idCategoryDataGridViewTextBoxColumn.HeaderText = "idCategory";
+            this.idCategoryDataGridViewTextBoxColumn.Name = "idCategoryDataGridViewTextBoxColumn";
+            // 
+            // quanlycafeDataSetBindingSource
+            // 
+            this.quanlycafeDataSetBindingSource.DataSource = this.quanlycafeDataSet;
+            this.quanlycafeDataSetBindingSource.Position = 0;
+            // 
+            // quanlycafeDataSet1
+            // 
+            this.quanlycafeDataSet1.DataSetName = "QuanlycafeDataSet1";
+            this.quanlycafeDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // foodCategoryBindingSource
+            // 
+            this.foodCategoryBindingSource.DataMember = "FoodCategory";
+            this.foodCategoryBindingSource.DataSource = this.quanlycafeDataSet1;
+            // 
+            // foodCategoryTableAdapter
+            // 
+            this.foodCategoryTableAdapter.ClearBeforeFill = true;
+            // 
+            // quanlycafeDataSet2
+            // 
+            this.quanlycafeDataSet2.DataSetName = "QuanlycafeDataSet2";
+            this.quanlycafeDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // foodCategoryBindingSource1
+            // 
+            this.foodCategoryBindingSource1.DataMember = "FoodCategory";
+            this.foodCategoryBindingSource1.DataSource = this.quanlycafeDataSet2;
+            // 
+            // foodCategoryTableAdapter1
+            // 
+            this.foodCategoryTableAdapter1.ClearBeforeFill = true;
+            // 
+            // idDataGridViewTextBoxColumn1
+            // 
+            this.idDataGridViewTextBoxColumn1.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn1.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
+            this.idDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn1
+            // 
+            this.nameDataGridViewTextBoxColumn1.DataPropertyName = "name";
+            this.nameDataGridViewTextBoxColumn1.HeaderText = "name";
+            this.nameDataGridViewTextBoxColumn1.Name = "nameDataGridViewTextBoxColumn1";
+            // 
+            // quanlycafeDataSet3
+            // 
+            this.quanlycafeDataSet3.DataSetName = "QuanlycafeDataSet3";
+            this.quanlycafeDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tableFoodBindingSource
+            // 
+            this.tableFoodBindingSource.DataMember = "TableFood";
+            this.tableFoodBindingSource.DataSource = this.quanlycafeDataSet3;
+            // 
+            // tableFoodTableAdapter
+            // 
+            this.tableFoodTableAdapter.ClearBeforeFill = true;
+            // 
+            // idDataGridViewTextBoxColumn2
+            // 
+            this.idDataGridViewTextBoxColumn2.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn2.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn2.Name = "idDataGridViewTextBoxColumn2";
+            this.idDataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn2
+            // 
+            this.nameDataGridViewTextBoxColumn2.DataPropertyName = "name";
+            this.nameDataGridViewTextBoxColumn2.HeaderText = "name";
+            this.nameDataGridViewTextBoxColumn2.Name = "nameDataGridViewTextBoxColumn2";
+            // 
+            // statusDataGridViewTextBoxColumn
+            // 
+            this.statusDataGridViewTextBoxColumn.DataPropertyName = "status";
+            this.statusDataGridViewTextBoxColumn.HeaderText = "status";
+            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+            // 
+            // quanlycafeDataSet4
+            // 
+            this.quanlycafeDataSet4.DataSetName = "QuanlycafeDataSet4";
+            this.quanlycafeDataSet4.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // accountBindingSource
+            // 
+            this.accountBindingSource.DataMember = "Account";
+            this.accountBindingSource.DataSource = this.quanlycafeDataSet4;
+            // 
+            // accountTableAdapter
+            // 
+            this.accountTableAdapter.ClearBeforeFill = true;
+            // 
+            // userNameDataGridViewTextBoxColumn
+            // 
+            this.userNameDataGridViewTextBoxColumn.DataPropertyName = "UserName";
+            this.userNameDataGridViewTextBoxColumn.HeaderText = "UserName";
+            this.userNameDataGridViewTextBoxColumn.Name = "userNameDataGridViewTextBoxColumn";
+            // 
+            // displayNameDataGridViewTextBoxColumn
+            // 
+            this.displayNameDataGridViewTextBoxColumn.DataPropertyName = "DisplayName";
+            this.displayNameDataGridViewTextBoxColumn.HeaderText = "DisplayName";
+            this.displayNameDataGridViewTextBoxColumn.Name = "displayNameDataGridViewTextBoxColumn";
+            // 
+            // passWordDataGridViewTextBoxColumn
+            // 
+            this.passWordDataGridViewTextBoxColumn.DataPropertyName = "PassWord";
+            this.passWordDataGridViewTextBoxColumn.HeaderText = "PassWord";
+            this.passWordDataGridViewTextBoxColumn.Name = "passWordDataGridViewTextBoxColumn";
+            // 
+            // typeDataGridViewTextBoxColumn
+            // 
+            this.typeDataGridViewTextBoxColumn.DataPropertyName = "Type";
+            this.typeDataGridViewTextBoxColumn.HeaderText = "Type";
+            this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
             // 
             // fAdmin
             // 
@@ -1063,10 +1276,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(653, 549);
             this.Controls.Add(this.tcAdmin);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "fAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Admin";
+            this.Load += new System.EventHandler(this.FAdmin_Load);
             this.tcAdmin.ResumeLayout(false);
             this.tpBill.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
@@ -1119,6 +1333,17 @@
             this.panel27.ResumeLayout(false);
             this.panel28.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvAccount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quanlycafeDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.foodBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quanlycafeDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quanlycafeDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.foodCategoryBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quanlycafeDataSet2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.foodCategoryBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quanlycafeDataSet3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tableFoodBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quanlycafeDataSet4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.accountBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1149,7 +1374,7 @@
         private System.Windows.Forms.Button btnSearchFood;
         private System.Windows.Forms.Button btnShowFood;
         private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.TextBox txbFoodName;
+        private System.Windows.Forms.TextBox txtFoodName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.TextBox txbFoodID;
@@ -1209,10 +1434,34 @@
         private System.Windows.Forms.Button btnAddAccount;
         private System.Windows.Forms.Panel panel28;
         private System.Windows.Forms.DataGridView dtgvAccount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private QuanlycafeDataSet quanlycafeDataSet;
+        private System.Windows.Forms.BindingSource foodBindingSource;
+        private QuanlycafeDataSetTableAdapters.FoodTableAdapter foodTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idCategoryDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource quanlycafeDataSetBindingSource;
+        private QuanlycafeDataSet1 quanlycafeDataSet1;
+        private System.Windows.Forms.BindingSource foodCategoryBindingSource;
+        private QuanlycafeDataSet1TableAdapters.FoodCategoryTableAdapter foodCategoryTableAdapter;
+        private QuanlycafeDataSet2 quanlycafeDataSet2;
+        private System.Windows.Forms.BindingSource foodCategoryBindingSource1;
+        private QuanlycafeDataSet2TableAdapters.FoodCategoryTableAdapter foodCategoryTableAdapter1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn1;
+        private QuanlycafeDataSet3 quanlycafeDataSet3;
+        private System.Windows.Forms.BindingSource tableFoodBindingSource;
+        private QuanlycafeDataSet3TableAdapters.TableFoodTableAdapter tableFoodTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
+        private QuanlycafeDataSet4 quanlycafeDataSet4;
+        private System.Windows.Forms.BindingSource accountBindingSource;
+        private QuanlycafeDataSet4TableAdapters.AccountTableAdapter accountTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn userNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn displayNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn passWordDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn typeDataGridViewTextBoxColumn;
     }
 }
