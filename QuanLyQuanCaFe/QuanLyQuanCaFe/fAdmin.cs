@@ -34,15 +34,8 @@ namespace QuanLyQuanCaFe
         }
 
         private void BtnShowFood_Click(object sender, EventArgs e)
-        {            
-            var categoryList = CategoryDAO.Instance.GetCategoryList();
-            List<Food> foods = new List<Food> ();
-            foreach (var category in categoryList)
-            {
-                var foodList = FoodDAO.Instance.GetFoodByCategory(category.Id);
-                foods.AddRange(foodList);
-            }
-            dtgvFood.DataSource = foods;            
+        {
+            this.foodTableAdapter.Fill(this.quanlycafeDataSet.Food);
         }
 
         private void BtnSearchFood_Click(object sender, EventArgs e)

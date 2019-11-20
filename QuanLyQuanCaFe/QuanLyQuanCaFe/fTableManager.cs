@@ -19,6 +19,7 @@ namespace QuanLyQuanCaFe
         public fTableManager()
         {
             InitializeComponent();
+            thôngTinTàiKhoảnToolStripMenuItem.Text = thôngTinTàiKhoảnToolStripMenuItem.Text + "(" + fLogin.LoggedUser.DisplayName + ")";
             LoadTable();
             LoadCategoryList();
         }

@@ -8,11 +8,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using QuanLyQuanCaFe.DTO;
 namespace QuanLyQuanCaFe
 {
     public partial class fLogin : Form
     {
+        private static Account loggedUser = null;
+
+        public static Account LoggedUser { get => loggedUser; set => loggedUser = value; }
+
         public fLogin()
         {
             InitializeComponent();
@@ -22,8 +26,11 @@ namespace QuanLyQuanCaFe
         {
             string userName = txbUserName.Text;
             string passWord =txbPassWord.Text;
-            if (Login(userName, passWord))
+
+            DataRow row = null;
+            if ((row = Login(userName, passWord)) != null)
             {
+                LoggedUser = new Account (row);
                 fTableManager f = new fTableManager();
                 this.Hide();
                 f.ShowDialog();
@@ -34,7 +41,7 @@ namespace QuanLyQuanCaFe
                 MessageBox.Show("Sai tên tài khoản hoặc mật khẩu!");
             }
         }
-        bool Login(string userName, string passWord)
+        DataRow Login(string userName, string passWord)
         {
             return AccountDAO.Instance.Login(userName, passWord);
         }

@@ -16,12 +16,22 @@ namespace QuanLyQuanCaFe.DAO
             private set { instance = value; }
         }
         private AccountDAO() { }
-        public bool Login(string userName, string passWord)
+        public DataRow Login(string userName, string passWord)
         {
             string query = "USP_Login @userName , @passWord ";
             DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[]{userName, passWord});
-            return result.Rows.Count >0;
+            if (result.Rows.Count == 0)
+                return null;
+            return result.Rows[0];
+        }
 
+        public bool ChangeInfo (string userName, string passWord, string newPassWord, string displayName)
+        {
+            if (Login (userName, passWord) == null)
+                return false;
+            string query = "USP_ChangeInfo @account ,  @oldpassword , @password , @displayname ";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { userName, passWord, newPassWord,  displayName});
+            return (result > 0);
         }
     }
 }
