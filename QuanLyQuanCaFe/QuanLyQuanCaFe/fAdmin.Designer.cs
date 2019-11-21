@@ -44,9 +44,13 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
             this.nmFoodPrice = new System.Windows.Forms.NumericUpDown();
+            this.foodBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.quanlycafeDataSet = new QuanLyQuanCaFe.QuanlycafeDataSet();
             this.label4 = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
             this.cbFoodCategory = new System.Windows.Forms.ComboBox();
+            this.foodCategoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.quanlycafeDataSet1 = new QuanLyQuanCaFe.QuanlycafeDataSet1();
             this.label3 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
             this.txtFoodName = new System.Windows.Forms.TextBox();
@@ -65,6 +69,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel14 = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.foodCategoryBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.quanlycafeDataSet2 = new QuanLyQuanCaFe.QuanlycafeDataSet2();
             this.label7 = new System.Windows.Forms.Label();
             this.panel15 = new System.Windows.Forms.Panel();
             this.txbCategoryID = new System.Windows.Forms.TextBox();
@@ -80,6 +86,8 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel21 = new System.Windows.Forms.Panel();
             this.cbTableStatus = new System.Windows.Forms.ComboBox();
+            this.tableFoodBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.quanlycafeDataSet3 = new QuanLyQuanCaFe.QuanlycafeDataSet3();
             this.label9 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
             this.txbTableName = new System.Windows.Forms.TextBox();
@@ -99,6 +107,8 @@
             this.btnResetPassword = new System.Windows.Forms.Button();
             this.panel24 = new System.Windows.Forms.Panel();
             this.cbAccountType = new System.Windows.Forms.ComboBox();
+            this.accountBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.quanlycafeDataSet4 = new QuanLyQuanCaFe.QuanlycafeDataSet4();
             this.label11 = new System.Windows.Forms.Label();
             this.panel25 = new System.Windows.Forms.Panel();
             this.txbDisplayName = new System.Windows.Forms.TextBox();
@@ -113,31 +123,21 @@
             this.btnAddAccount = new System.Windows.Forms.Button();
             this.panel28 = new System.Windows.Forms.Panel();
             this.dtgvAccount = new System.Windows.Forms.DataGridView();
-            this.quanlycafeDataSet = new QuanLyQuanCaFe.QuanlycafeDataSet();
-            this.foodBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.foodTableAdapter = new QuanLyQuanCaFe.QuanlycafeDataSetTableAdapters.FoodTableAdapter();
+            this.quanlycafeDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.foodCategoryTableAdapter = new QuanLyQuanCaFe.QuanlycafeDataSet1TableAdapters.FoodCategoryTableAdapter();
+            this.foodCategoryTableAdapter1 = new QuanLyQuanCaFe.QuanlycafeDataSet2TableAdapters.FoodCategoryTableAdapter();
+            this.tableFoodTableAdapter = new QuanLyQuanCaFe.QuanlycafeDataSet3TableAdapters.TableFoodTableAdapter();
+            this.accountTableAdapter = new QuanLyQuanCaFe.QuanlycafeDataSet4TableAdapters.AccountTableAdapter();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idCategoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quanlycafeDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.quanlycafeDataSet1 = new QuanLyQuanCaFe.QuanlycafeDataSet1();
-            this.foodCategoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.foodCategoryTableAdapter = new QuanLyQuanCaFe.QuanlycafeDataSet1TableAdapters.FoodCategoryTableAdapter();
-            this.quanlycafeDataSet2 = new QuanLyQuanCaFe.QuanlycafeDataSet2();
-            this.foodCategoryBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.foodCategoryTableAdapter1 = new QuanLyQuanCaFe.QuanlycafeDataSet2TableAdapters.FoodCategoryTableAdapter();
             this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quanlycafeDataSet3 = new QuanLyQuanCaFe.QuanlycafeDataSet3();
-            this.tableFoodBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tableFoodTableAdapter = new QuanLyQuanCaFe.QuanlycafeDataSet3TableAdapters.TableFoodTableAdapter();
             this.idDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quanlycafeDataSet4 = new QuanLyQuanCaFe.QuanlycafeDataSet4();
-            this.accountBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.accountTableAdapter = new QuanLyQuanCaFe.QuanlycafeDataSet4TableAdapters.AccountTableAdapter();
             this.userNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.displayNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.passWordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -152,7 +152,11 @@
             this.panel7.SuspendLayout();
             this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmFoodPrice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.foodBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quanlycafeDataSet)).BeginInit();
             this.panel11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.foodCategoryBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quanlycafeDataSet1)).BeginInit();
             this.panel10.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -161,6 +165,8 @@
             this.tbFoodCategory.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel14.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.foodCategoryBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quanlycafeDataSet2)).BeginInit();
             this.panel15.SuspendLayout();
             this.panel16.SuspendLayout();
             this.panel17.SuspendLayout();
@@ -168,6 +174,8 @@
             this.tpTable.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel21.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tableFoodBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quanlycafeDataSet3)).BeginInit();
             this.panel13.SuspendLayout();
             this.panel18.SuspendLayout();
             this.panel19.SuspendLayout();
@@ -176,22 +184,14 @@
             this.tpAccount.SuspendLayout();
             this.panel22.SuspendLayout();
             this.panel24.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.accountBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quanlycafeDataSet4)).BeginInit();
             this.panel25.SuspendLayout();
             this.panel26.SuspendLayout();
             this.panel27.SuspendLayout();
             this.panel28.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvAccount)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quanlycafeDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.foodBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quanlycafeDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quanlycafeDataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.foodCategoryBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quanlycafeDataSet2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.foodCategoryBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quanlycafeDataSet3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tableFoodBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quanlycafeDataSet4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.accountBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tcAdmin
@@ -358,6 +358,16 @@
             this.nmFoodPrice.Size = new System.Drawing.Size(176, 20);
             this.nmFoodPrice.TabIndex = 1;
             // 
+            // foodBindingSource
+            // 
+            this.foodBindingSource.DataMember = "Food";
+            this.foodBindingSource.DataSource = this.quanlycafeDataSet;
+            // 
+            // quanlycafeDataSet
+            // 
+            this.quanlycafeDataSet.DataSetName = "QuanlycafeDataSet";
+            this.quanlycafeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -393,6 +403,16 @@
             this.cbFoodCategory.TabIndex = 1;
             this.cbFoodCategory.ValueMember = "id";
             this.cbFoodCategory.SelectedIndexChanged += new System.EventHandler(this.CbFoodCategory_SelectedIndexChanged);
+            // 
+            // foodCategoryBindingSource
+            // 
+            this.foodCategoryBindingSource.DataMember = "FoodCategory";
+            this.foodCategoryBindingSource.DataSource = this.quanlycafeDataSet1;
+            // 
+            // quanlycafeDataSet1
+            // 
+            this.quanlycafeDataSet1.DataSetName = "QuanlycafeDataSet1";
+            this.quanlycafeDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label3
             // 
@@ -547,6 +567,7 @@
             this.dtgvFood.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgvFood.Size = new System.Drawing.Size(338, 432);
             this.dtgvFood.TabIndex = 0;
+            this.dtgvFood.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvFood_CellContentClick);
             // 
             // tbFoodCategory
             // 
@@ -590,6 +611,16 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(146, 20);
             this.textBox1.TabIndex = 1;
+            // 
+            // foodCategoryBindingSource1
+            // 
+            this.foodCategoryBindingSource1.DataMember = "FoodCategory";
+            this.foodCategoryBindingSource1.DataSource = this.quanlycafeDataSet2;
+            // 
+            // quanlycafeDataSet2
+            // 
+            this.quanlycafeDataSet2.DataSetName = "QuanlycafeDataSet2";
+            this.quanlycafeDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label7
             // 
@@ -757,6 +788,16 @@
             this.cbTableStatus.Name = "cbTableStatus";
             this.cbTableStatus.Size = new System.Drawing.Size(156, 21);
             this.cbTableStatus.TabIndex = 2;
+            // 
+            // tableFoodBindingSource
+            // 
+            this.tableFoodBindingSource.DataMember = "TableFood";
+            this.tableFoodBindingSource.DataSource = this.quanlycafeDataSet3;
+            // 
+            // quanlycafeDataSet3
+            // 
+            this.quanlycafeDataSet3.DataSetName = "QuanlycafeDataSet3";
+            this.quanlycafeDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label9
             // 
@@ -964,6 +1005,16 @@
             this.cbAccountType.Size = new System.Drawing.Size(148, 21);
             this.cbAccountType.TabIndex = 1;
             // 
+            // accountBindingSource
+            // 
+            this.accountBindingSource.DataMember = "Account";
+            this.accountBindingSource.DataSource = this.quanlycafeDataSet4;
+            // 
+            // quanlycafeDataSet4
+            // 
+            this.quanlycafeDataSet4.DataSetName = "QuanlycafeDataSet4";
+            this.quanlycafeDataSet4.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -1114,160 +1165,110 @@
             this.dtgvAccount.Size = new System.Drawing.Size(338, 432);
             this.dtgvAccount.TabIndex = 0;
             // 
-            // quanlycafeDataSet
-            // 
-            this.quanlycafeDataSet.DataSetName = "QuanlycafeDataSet";
-            this.quanlycafeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // foodBindingSource
-            // 
-            this.foodBindingSource.DataMember = "Food";
-            this.foodBindingSource.DataSource = this.quanlycafeDataSet;
-            // 
             // foodTableAdapter
             // 
             this.foodTableAdapter.ClearBeforeFill = true;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            // 
-            // priceDataGridViewTextBoxColumn
-            // 
-            this.priceDataGridViewTextBoxColumn.DataPropertyName = "price";
-            this.priceDataGridViewTextBoxColumn.HeaderText = "price";
-            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
-            // 
-            // idCategoryDataGridViewTextBoxColumn
-            // 
-            this.idCategoryDataGridViewTextBoxColumn.DataPropertyName = "idCategory";
-            this.idCategoryDataGridViewTextBoxColumn.HeaderText = "idCategory";
-            this.idCategoryDataGridViewTextBoxColumn.Name = "idCategoryDataGridViewTextBoxColumn";
             // 
             // quanlycafeDataSetBindingSource
             // 
             this.quanlycafeDataSetBindingSource.DataSource = this.quanlycafeDataSet;
             this.quanlycafeDataSetBindingSource.Position = 0;
             // 
-            // quanlycafeDataSet1
-            // 
-            this.quanlycafeDataSet1.DataSetName = "QuanlycafeDataSet1";
-            this.quanlycafeDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // foodCategoryBindingSource
-            // 
-            this.foodCategoryBindingSource.DataMember = "FoodCategory";
-            this.foodCategoryBindingSource.DataSource = this.quanlycafeDataSet1;
-            // 
             // foodCategoryTableAdapter
             // 
             this.foodCategoryTableAdapter.ClearBeforeFill = true;
-            // 
-            // quanlycafeDataSet2
-            // 
-            this.quanlycafeDataSet2.DataSetName = "QuanlycafeDataSet2";
-            this.quanlycafeDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // foodCategoryBindingSource1
-            // 
-            this.foodCategoryBindingSource1.DataMember = "FoodCategory";
-            this.foodCategoryBindingSource1.DataSource = this.quanlycafeDataSet2;
             // 
             // foodCategoryTableAdapter1
             // 
             this.foodCategoryTableAdapter1.ClearBeforeFill = true;
             // 
+            // tableFoodTableAdapter
+            // 
+            this.tableFoodTableAdapter.ClearBeforeFill = true;
+            // 
+            // accountTableAdapter
+            // 
+            this.accountTableAdapter.ClearBeforeFill = true;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Mã món";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Tên món";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            // 
+            // priceDataGridViewTextBoxColumn
+            // 
+            this.priceDataGridViewTextBoxColumn.DataPropertyName = "price";
+            this.priceDataGridViewTextBoxColumn.HeaderText = "Đơn giá";
+            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            // 
+            // idCategoryDataGridViewTextBoxColumn
+            // 
+            this.idCategoryDataGridViewTextBoxColumn.DataPropertyName = "idCategory";
+            this.idCategoryDataGridViewTextBoxColumn.HeaderText = "Loại";
+            this.idCategoryDataGridViewTextBoxColumn.Name = "idCategoryDataGridViewTextBoxColumn";
+            // 
             // idDataGridViewTextBoxColumn1
             // 
             this.idDataGridViewTextBoxColumn1.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn1.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn1.HeaderText = "Mã ";
             this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
             this.idDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // nameDataGridViewTextBoxColumn1
             // 
             this.nameDataGridViewTextBoxColumn1.DataPropertyName = "name";
-            this.nameDataGridViewTextBoxColumn1.HeaderText = "name";
+            this.nameDataGridViewTextBoxColumn1.HeaderText = "Tên loại";
             this.nameDataGridViewTextBoxColumn1.Name = "nameDataGridViewTextBoxColumn1";
-            // 
-            // quanlycafeDataSet3
-            // 
-            this.quanlycafeDataSet3.DataSetName = "QuanlycafeDataSet3";
-            this.quanlycafeDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tableFoodBindingSource
-            // 
-            this.tableFoodBindingSource.DataMember = "TableFood";
-            this.tableFoodBindingSource.DataSource = this.quanlycafeDataSet3;
-            // 
-            // tableFoodTableAdapter
-            // 
-            this.tableFoodTableAdapter.ClearBeforeFill = true;
             // 
             // idDataGridViewTextBoxColumn2
             // 
             this.idDataGridViewTextBoxColumn2.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn2.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn2.HeaderText = "Mã";
             this.idDataGridViewTextBoxColumn2.Name = "idDataGridViewTextBoxColumn2";
             this.idDataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // nameDataGridViewTextBoxColumn2
             // 
             this.nameDataGridViewTextBoxColumn2.DataPropertyName = "name";
-            this.nameDataGridViewTextBoxColumn2.HeaderText = "name";
+            this.nameDataGridViewTextBoxColumn2.HeaderText = "Tên bàn";
             this.nameDataGridViewTextBoxColumn2.Name = "nameDataGridViewTextBoxColumn2";
             // 
             // statusDataGridViewTextBoxColumn
             // 
             this.statusDataGridViewTextBoxColumn.DataPropertyName = "status";
-            this.statusDataGridViewTextBoxColumn.HeaderText = "status";
+            this.statusDataGridViewTextBoxColumn.HeaderText = "Trạng thái";
             this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
-            // 
-            // quanlycafeDataSet4
-            // 
-            this.quanlycafeDataSet4.DataSetName = "QuanlycafeDataSet4";
-            this.quanlycafeDataSet4.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // accountBindingSource
-            // 
-            this.accountBindingSource.DataMember = "Account";
-            this.accountBindingSource.DataSource = this.quanlycafeDataSet4;
-            // 
-            // accountTableAdapter
-            // 
-            this.accountTableAdapter.ClearBeforeFill = true;
             // 
             // userNameDataGridViewTextBoxColumn
             // 
             this.userNameDataGridViewTextBoxColumn.DataPropertyName = "UserName";
-            this.userNameDataGridViewTextBoxColumn.HeaderText = "UserName";
+            this.userNameDataGridViewTextBoxColumn.HeaderText = "Tên đăng nhập";
             this.userNameDataGridViewTextBoxColumn.Name = "userNameDataGridViewTextBoxColumn";
             // 
             // displayNameDataGridViewTextBoxColumn
             // 
             this.displayNameDataGridViewTextBoxColumn.DataPropertyName = "DisplayName";
-            this.displayNameDataGridViewTextBoxColumn.HeaderText = "DisplayName";
+            this.displayNameDataGridViewTextBoxColumn.HeaderText = "Tên hiển thị";
             this.displayNameDataGridViewTextBoxColumn.Name = "displayNameDataGridViewTextBoxColumn";
             // 
             // passWordDataGridViewTextBoxColumn
             // 
             this.passWordDataGridViewTextBoxColumn.DataPropertyName = "PassWord";
-            this.passWordDataGridViewTextBoxColumn.HeaderText = "PassWord";
+            this.passWordDataGridViewTextBoxColumn.HeaderText = "Mật khẩu";
             this.passWordDataGridViewTextBoxColumn.Name = "passWordDataGridViewTextBoxColumn";
             // 
             // typeDataGridViewTextBoxColumn
             // 
             this.typeDataGridViewTextBoxColumn.DataPropertyName = "Type";
-            this.typeDataGridViewTextBoxColumn.HeaderText = "Type";
+            this.typeDataGridViewTextBoxColumn.HeaderText = "Loại";
             this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
             // 
             // fAdmin
@@ -1293,8 +1294,12 @@
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmFoodPrice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.foodBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quanlycafeDataSet)).EndInit();
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.foodCategoryBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quanlycafeDataSet1)).EndInit();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
             this.panel9.ResumeLayout(false);
@@ -1306,6 +1311,8 @@
             this.panel1.ResumeLayout(false);
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.foodCategoryBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quanlycafeDataSet2)).EndInit();
             this.panel15.ResumeLayout(false);
             this.panel15.PerformLayout();
             this.panel16.ResumeLayout(false);
@@ -1315,6 +1322,8 @@
             this.panel2.ResumeLayout(false);
             this.panel21.ResumeLayout(false);
             this.panel21.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tableFoodBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quanlycafeDataSet3)).EndInit();
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
             this.panel18.ResumeLayout(false);
@@ -1326,6 +1335,8 @@
             this.panel22.ResumeLayout(false);
             this.panel24.ResumeLayout(false);
             this.panel24.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.accountBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quanlycafeDataSet4)).EndInit();
             this.panel25.ResumeLayout(false);
             this.panel25.PerformLayout();
             this.panel26.ResumeLayout(false);
@@ -1333,17 +1344,7 @@
             this.panel27.ResumeLayout(false);
             this.panel28.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvAccount)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quanlycafeDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.foodBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.quanlycafeDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quanlycafeDataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.foodCategoryBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quanlycafeDataSet2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.foodCategoryBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quanlycafeDataSet3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tableFoodBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quanlycafeDataSet4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.accountBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1437,10 +1438,6 @@
         private QuanlycafeDataSet quanlycafeDataSet;
         private System.Windows.Forms.BindingSource foodBindingSource;
         private QuanlycafeDataSetTableAdapters.FoodTableAdapter foodTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idCategoryDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource quanlycafeDataSetBindingSource;
         private QuanlycafeDataSet1 quanlycafeDataSet1;
         private System.Windows.Forms.BindingSource foodCategoryBindingSource;
@@ -1448,17 +1445,21 @@
         private QuanlycafeDataSet2 quanlycafeDataSet2;
         private System.Windows.Forms.BindingSource foodCategoryBindingSource1;
         private QuanlycafeDataSet2TableAdapters.FoodCategoryTableAdapter foodCategoryTableAdapter1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn1;
         private QuanlycafeDataSet3 quanlycafeDataSet3;
         private System.Windows.Forms.BindingSource tableFoodBindingSource;
         private QuanlycafeDataSet3TableAdapters.TableFoodTableAdapter tableFoodTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
         private QuanlycafeDataSet4 quanlycafeDataSet4;
         private System.Windows.Forms.BindingSource accountBindingSource;
         private QuanlycafeDataSet4TableAdapters.AccountTableAdapter accountTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idCategoryDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn userNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn displayNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn passWordDataGridViewTextBoxColumn;

@@ -87,7 +87,7 @@ namespace QuanLyQuanCaFe.DAO
             if (billId == -1)
                 return -1;
 
-            String sql = "UPDATE dbo.bill SET discount=" + discount+ "DateCheckOut=GetDate() WHERE id=" + billId; 
+            String sql = "UPDATE dbo.bill SET discount=" + discount+ ", DateCheckOut=GetDate() WHERE id=" + billId; 
             // Chèn ngày cho việc Thanh Toán Bill
             DataProvider.Instance.ExecuteScalar(sql);
             // Lặp lại chỗ này cũng ko hay lắm, nhưng vì tốc độ viết chương trình :)

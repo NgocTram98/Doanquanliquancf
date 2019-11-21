@@ -36,10 +36,11 @@ namespace QuanLyQuanCaFe
         private void BtnShowFood_Click(object sender, EventArgs e)
         {
             this.foodTableAdapter.Fill(this.quanlycafeDataSet.Food);
+            dtgvTable.DataSource = this.quanlycafeDataSet.Food;
         }
 
         private void BtnSearchFood_Click(object sender, EventArgs e)
-        {
+        {            
             List<Food> foods = FoodDAO.Instance.SelectAlike(txbSearchFoodName.Text);// Chưa bắt conjunction
             dtgvFood.DataSource = foods;
         }
@@ -69,10 +70,14 @@ namespace QuanLyQuanCaFe
             this.foodCategoryTableAdapter.Fill(this.quanlycafeDataSet1.FoodCategory);
             // TODO: This line of code loads data into the 'quanlycafeDataSet.Food' table. You can move, or remove it, as needed.
             this.foodTableAdapter.Fill(this.quanlycafeDataSet.Food);
-
         }
 
         private void CbFoodCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtgvFood_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
