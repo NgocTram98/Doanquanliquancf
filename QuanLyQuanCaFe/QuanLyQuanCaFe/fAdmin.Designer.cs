@@ -65,12 +65,14 @@
             this.btnAddFood = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.dtgvFood = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idCategoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbFoodCategory = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel14 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.foodCategoryBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.quanlycafeDataSet2 = new QuanLyQuanCaFe.QuanlycafeDataSet2();
+            this.txtCategoryName = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.panel15 = new System.Windows.Forms.Panel();
             this.txbCategoryID = new System.Windows.Forms.TextBox();
@@ -85,6 +87,8 @@
             this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tpTable = new System.Windows.Forms.TabPage();
+            this.cbFilter = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel21 = new System.Windows.Forms.Panel();
             this.cbTableStatus = new System.Windows.Forms.ComboBox();
@@ -95,7 +99,7 @@
             this.txbTableName = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.panel18 = new System.Windows.Forms.Panel();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtTableID = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.panel19 = new System.Windows.Forms.Panel();
             this.btnShowTable = new System.Windows.Forms.Button();
@@ -132,16 +136,14 @@
             this.displayNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.passWordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.foodCategoryBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.quanlycafeDataSet2 = new QuanLyQuanCaFe.QuanlycafeDataSet2();
             this.foodTableAdapter = new QuanLyQuanCaFe.QuanlycafeDataSetTableAdapters.FoodTableAdapter();
             this.quanlycafeDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.foodCategoryTableAdapter = new QuanLyQuanCaFe.QuanlycafeDataSet1TableAdapters.FoodCategoryTableAdapter();
             this.foodCategoryTableAdapter1 = new QuanLyQuanCaFe.QuanlycafeDataSet2TableAdapters.FoodCategoryTableAdapter();
             this.tableFoodTableAdapter = new QuanLyQuanCaFe.QuanlycafeDataSet3TableAdapters.TableFoodTableAdapter();
             this.accountTableAdapter = new QuanLyQuanCaFe.QuanlycafeDataSet4TableAdapters.AccountTableAdapter();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idCategoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tcAdmin.SuspendLayout();
             this.tpBill.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -165,8 +167,6 @@
             this.tbFoodCategory.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel14.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.foodCategoryBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quanlycafeDataSet2)).BeginInit();
             this.panel15.SuspendLayout();
             this.panel16.SuspendLayout();
             this.panel17.SuspendLayout();
@@ -191,6 +191,8 @@
             this.panel27.SuspendLayout();
             this.panel28.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvAccount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.foodCategoryBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quanlycafeDataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quanlycafeDataSetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -207,6 +209,7 @@
             this.tcAdmin.SelectedIndex = 0;
             this.tcAdmin.Size = new System.Drawing.Size(635, 530);
             this.tcAdmin.TabIndex = 0;
+            this.tcAdmin.SelectedIndexChanged += new System.EventHandler(this.tcAdmin_SelectedIndexChanged);
             // 
             // tpBill
             // 
@@ -570,6 +573,34 @@
             this.dtgvFood.TabIndex = 0;
             this.dtgvFood.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvFood_CellContentClick);
             // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Mã món";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn.Width = 40;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Tên món";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // priceDataGridViewTextBoxColumn
+            // 
+            this.priceDataGridViewTextBoxColumn.DataPropertyName = "price";
+            this.priceDataGridViewTextBoxColumn.HeaderText = "Đơn giá";
+            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            // 
+            // idCategoryDataGridViewTextBoxColumn
+            // 
+            this.idCategoryDataGridViewTextBoxColumn.DataPropertyName = "idCategory";
+            this.idCategoryDataGridViewTextBoxColumn.HeaderText = "Loại";
+            this.idCategoryDataGridViewTextBoxColumn.Name = "idCategoryDataGridViewTextBoxColumn";
+            this.idCategoryDataGridViewTextBoxColumn.Width = 50;
+            // 
             // tbFoodCategory
             // 
             this.tbFoodCategory.Controls.Add(this.panel1);
@@ -596,7 +627,7 @@
             // 
             // panel14
             // 
-            this.panel14.Controls.Add(this.textBox1);
+            this.panel14.Controls.Add(this.txtCategoryName);
             this.panel14.Controls.Add(this.label7);
             this.panel14.Location = new System.Drawing.Point(2, 45);
             this.panel14.Margin = new System.Windows.Forms.Padding(2);
@@ -604,24 +635,14 @@
             this.panel14.Size = new System.Drawing.Size(268, 37);
             this.panel14.TabIndex = 2;
             // 
-            // textBox1
+            // txtCategoryName
             // 
-            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.foodCategoryBindingSource1, "name", true));
-            this.textBox1.Location = new System.Drawing.Point(121, 11);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(146, 20);
-            this.textBox1.TabIndex = 1;
-            // 
-            // foodCategoryBindingSource1
-            // 
-            this.foodCategoryBindingSource1.DataMember = "FoodCategory";
-            this.foodCategoryBindingSource1.DataSource = this.quanlycafeDataSet2;
-            // 
-            // quanlycafeDataSet2
-            // 
-            this.quanlycafeDataSet2.DataSetName = "QuanlycafeDataSet2";
-            this.quanlycafeDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.txtCategoryName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.foodCategoryBindingSource, "name", true, System.Windows.Forms.DataSourceUpdateMode.Never));
+            this.txtCategoryName.Location = new System.Drawing.Point(121, 8);
+            this.txtCategoryName.Margin = new System.Windows.Forms.Padding(2);
+            this.txtCategoryName.Name = "txtCategoryName";
+            this.txtCategoryName.Size = new System.Drawing.Size(146, 20);
+            this.txtCategoryName.TabIndex = 1;
             // 
             // label7
             // 
@@ -646,7 +667,7 @@
             // 
             // txbCategoryID
             // 
-            this.txbCategoryID.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.foodCategoryBindingSource1, "id", true));
+            this.txbCategoryID.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.foodCategoryBindingSource, "id", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.txbCategoryID.Location = new System.Drawing.Point(121, 11);
             this.txbCategoryID.Margin = new System.Windows.Forms.Padding(2);
             this.txbCategoryID.Name = "txbCategoryID";
@@ -679,13 +700,14 @@
             // 
             // btnShowCategory
             // 
-            this.btnShowCategory.Location = new System.Drawing.Point(209, 2);
+            this.btnShowCategory.Location = new System.Drawing.Point(277, 2);
             this.btnShowCategory.Margin = new System.Windows.Forms.Padding(2);
             this.btnShowCategory.Name = "btnShowCategory";
             this.btnShowCategory.Size = new System.Drawing.Size(64, 50);
             this.btnShowCategory.TabIndex = 1;
             this.btnShowCategory.Text = "Xem";
             this.btnShowCategory.UseVisualStyleBackColor = true;
+            this.btnShowCategory.Click += new System.EventHandler(this.btnShowCategory_Click);
             // 
             // btnEditCategory
             // 
@@ -696,6 +718,7 @@
             this.btnEditCategory.TabIndex = 2;
             this.btnEditCategory.Text = "Sửa";
             this.btnEditCategory.UseVisualStyleBackColor = true;
+            this.btnEditCategory.Click += new System.EventHandler(this.btnEditCategory_Click);
             // 
             // btnDeleteCategory
             // 
@@ -706,6 +729,7 @@
             this.btnDeleteCategory.TabIndex = 1;
             this.btnDeleteCategory.Text = "Xóa";
             this.btnDeleteCategory.UseVisualStyleBackColor = true;
+            this.btnDeleteCategory.Click += new System.EventHandler(this.btnDeleteCategory_Click);
             // 
             // btnAddCategory
             // 
@@ -716,6 +740,7 @@
             this.btnAddCategory.TabIndex = 0;
             this.btnAddCategory.Text = "Thêm";
             this.btnAddCategory.UseVisualStyleBackColor = true;
+            this.btnAddCategory.Click += new System.EventHandler(this.btnAddCategory_Click);
             // 
             // panel17
             // 
@@ -733,7 +758,7 @@
             this.dtgvCategory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn1,
             this.nameDataGridViewTextBoxColumn1});
-            this.dtgvCategory.DataSource = this.foodCategoryBindingSource1;
+            this.dtgvCategory.DataSource = this.foodCategoryBindingSource;
             this.dtgvCategory.Location = new System.Drawing.Point(2, 2);
             this.dtgvCategory.Margin = new System.Windows.Forms.Padding(2);
             this.dtgvCategory.Name = "dtgvCategory";
@@ -754,9 +779,12 @@
             this.nameDataGridViewTextBoxColumn1.DataPropertyName = "name";
             this.nameDataGridViewTextBoxColumn1.HeaderText = "Tên loại";
             this.nameDataGridViewTextBoxColumn1.Name = "nameDataGridViewTextBoxColumn1";
+            this.nameDataGridViewTextBoxColumn1.Width = 200;
             // 
             // tpTable
             // 
+            this.tpTable.Controls.Add(this.cbFilter);
+            this.tpTable.Controls.Add(this.label10);
             this.tpTable.Controls.Add(this.panel2);
             this.tpTable.Controls.Add(this.panel19);
             this.tpTable.Controls.Add(this.panel20);
@@ -768,6 +796,24 @@
             this.tpTable.TabIndex = 3;
             this.tpTable.Text = "Bàn ăn";
             this.tpTable.UseVisualStyleBackColor = true;
+            // 
+            // cbFilter
+            // 
+            this.cbFilter.FormattingEnabled = true;
+            this.cbFilter.Location = new System.Drawing.Point(360, 22);
+            this.cbFilter.Name = "cbFilter";
+            this.cbFilter.Size = new System.Drawing.Size(262, 21);
+            this.cbFilter.TabIndex = 10;
+            this.cbFilter.SelectedIndexChanged += new System.EventHandler(this.cbFilter_SelectedIndexChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(357, 5);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(52, 13);
+            this.label10.TabIndex = 9;
+            this.label10.Text = "Lọc theo:";
             // 
             // panel2
             // 
@@ -792,16 +838,18 @@
             // 
             // cbTableStatus
             // 
-            this.cbTableStatus.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tableFoodBindingSource, "status", true));
+            this.cbTableStatus.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.tableFoodBindingSource, "status", true));
+            this.cbTableStatus.Enabled = false;
             this.cbTableStatus.FormattingEnabled = true;
             this.cbTableStatus.Items.AddRange(new object[] {
             "0",
             "1"});
-            this.cbTableStatus.Location = new System.Drawing.Point(112, 9);
+            this.cbTableStatus.Location = new System.Drawing.Point(112, 10);
             this.cbTableStatus.Margin = new System.Windows.Forms.Padding(2);
             this.cbTableStatus.Name = "cbTableStatus";
             this.cbTableStatus.Size = new System.Drawing.Size(156, 21);
             this.cbTableStatus.TabIndex = 2;
+            this.cbTableStatus.SelectedIndexChanged += new System.EventHandler(this.cbTableStatus_SelectedIndexChanged);
             // 
             // tableFoodBindingSource
             // 
@@ -856,7 +904,7 @@
             // 
             // panel18
             // 
-            this.panel18.Controls.Add(this.textBox3);
+            this.panel18.Controls.Add(this.txtTableID);
             this.panel18.Controls.Add(this.label6);
             this.panel18.Location = new System.Drawing.Point(2, 2);
             this.panel18.Margin = new System.Windows.Forms.Padding(2);
@@ -864,15 +912,15 @@
             this.panel18.Size = new System.Drawing.Size(268, 37);
             this.panel18.TabIndex = 1;
             // 
-            // textBox3
+            // txtTableID
             // 
-            this.textBox3.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tableFoodBindingSource, "id", true));
-            this.textBox3.Location = new System.Drawing.Point(112, 11);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(156, 20);
-            this.textBox3.TabIndex = 1;
+            this.txtTableID.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tableFoodBindingSource, "id", true));
+            this.txtTableID.Location = new System.Drawing.Point(112, 11);
+            this.txtTableID.Margin = new System.Windows.Forms.Padding(2);
+            this.txtTableID.Name = "txtTableID";
+            this.txtTableID.ReadOnly = true;
+            this.txtTableID.Size = new System.Drawing.Size(156, 20);
+            this.txtTableID.TabIndex = 1;
             // 
             // label6
             // 
@@ -906,6 +954,7 @@
             this.btnShowTable.TabIndex = 1;
             this.btnShowTable.Text = "Xem";
             this.btnShowTable.UseVisualStyleBackColor = true;
+            this.btnShowTable.Click += new System.EventHandler(this.btnShowTable_Click);
             // 
             // btnEditTable
             // 
@@ -916,6 +965,7 @@
             this.btnEditTable.TabIndex = 2;
             this.btnEditTable.Text = "Sửa";
             this.btnEditTable.UseVisualStyleBackColor = true;
+            this.btnEditTable.Click += new System.EventHandler(this.btnEditTable_Click);
             // 
             // btnDeleteTable
             // 
@@ -926,6 +976,7 @@
             this.btnDeleteTable.TabIndex = 1;
             this.btnDeleteTable.Text = "Xóa";
             this.btnDeleteTable.UseVisualStyleBackColor = true;
+            this.btnDeleteTable.Click += new System.EventHandler(this.btnDeleteTable_Click);
             // 
             // btnAddTable
             // 
@@ -936,6 +987,7 @@
             this.btnAddTable.TabIndex = 0;
             this.btnAddTable.Text = "Thêm";
             this.btnAddTable.UseVisualStyleBackColor = true;
+            this.btnAddTable.Click += new System.EventHandler(this.btnAddTable_Click);
             // 
             // panel20
             // 
@@ -1222,6 +1274,16 @@
             this.typeDataGridViewTextBoxColumn.HeaderText = "Loại";
             this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
             // 
+            // foodCategoryBindingSource1
+            // 
+            this.foodCategoryBindingSource1.DataMember = "FoodCategory";
+            this.foodCategoryBindingSource1.DataSource = this.quanlycafeDataSet2;
+            // 
+            // quanlycafeDataSet2
+            // 
+            this.quanlycafeDataSet2.DataSetName = "QuanlycafeDataSet2";
+            this.quanlycafeDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // foodTableAdapter
             // 
             this.foodTableAdapter.ClearBeforeFill = true;
@@ -1246,34 +1308,6 @@
             // accountTableAdapter
             // 
             this.accountTableAdapter.ClearBeforeFill = true;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Mã món";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn.Width = 40;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Tên món";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // priceDataGridViewTextBoxColumn
-            // 
-            this.priceDataGridViewTextBoxColumn.DataPropertyName = "price";
-            this.priceDataGridViewTextBoxColumn.HeaderText = "Đơn giá";
-            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
-            // 
-            // idCategoryDataGridViewTextBoxColumn
-            // 
-            this.idCategoryDataGridViewTextBoxColumn.DataPropertyName = "idCategory";
-            this.idCategoryDataGridViewTextBoxColumn.HeaderText = "Loại";
-            this.idCategoryDataGridViewTextBoxColumn.Name = "idCategoryDataGridViewTextBoxColumn";
-            this.idCategoryDataGridViewTextBoxColumn.Width = 50;
             // 
             // fAdmin
             // 
@@ -1315,14 +1349,13 @@
             this.panel1.ResumeLayout(false);
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.foodCategoryBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quanlycafeDataSet2)).EndInit();
             this.panel15.ResumeLayout(false);
             this.panel15.PerformLayout();
             this.panel16.ResumeLayout(false);
             this.panel17.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvCategory)).EndInit();
             this.tpTable.ResumeLayout(false);
+            this.tpTable.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel21.ResumeLayout(false);
             this.panel21.PerformLayout();
@@ -1348,6 +1381,8 @@
             this.panel27.ResumeLayout(false);
             this.panel28.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvAccount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.foodCategoryBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quanlycafeDataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.quanlycafeDataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -1392,7 +1427,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel14;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtCategoryName;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel15;
         private System.Windows.Forms.TextBox txbCategoryID;
@@ -1412,7 +1447,7 @@
         private System.Windows.Forms.TextBox txbTableName;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel18;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtTableID;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel19;
         private System.Windows.Forms.Button btnShowTable;
@@ -1455,8 +1490,6 @@
         private QuanlycafeDataSet4 quanlycafeDataSet4;
         private System.Windows.Forms.BindingSource accountBindingSource;
         private QuanlycafeDataSet4TableAdapters.AccountTableAdapter accountTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
@@ -1468,5 +1501,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idCategoryDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.ComboBox cbFilter;
+        private System.Windows.Forms.Label label10;
     }
 }

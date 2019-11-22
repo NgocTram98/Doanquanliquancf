@@ -46,6 +46,31 @@ namespace QuanLyQuanCaFe.DAO
             return tableList;
         }
 
+        public bool AddTable(String name)
+        {
+            int result = DataProvider.Instance.ExecuteNonQuery("USP_InsertTable @name ", new object[] { name });
+            return result > 0;
+        }
 
+        public bool EditTable(int id, String name)
+        {
+            int result = DataProvider.Instance.ExecuteNonQuery("USP_EditTable @id , @name ", new object[] { id, name });
+            return result > 0;
+        }
+
+        public bool DeleteTable(int id)
+        {
+            int result = DataProvider.Instance.ExecuteNonQuery("DELETE FROM dbo.TableFood WHERE id = " + id);
+            return result > 0;
+        }
+
+        public List<TableStatus> RetrieveAllTableStatus ()
+        {
+            List<TableStatus> collection = new List<TableStatus>();
+            collection.Add(new TableStatus("", "Tất cả"));
+            collection.Add(new TableStatus("trong", "Trống"));
+            collection.Add(new TableStatus("co nguoi", "Có người"));
+            return collection;
+        }
     }
 }

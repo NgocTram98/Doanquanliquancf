@@ -27,5 +27,23 @@ namespace QuanLyQuanCaFe.DAO
             }
             return infos;
         }
+
+        public bool AddCategory(String name)
+        {
+            int result = DataProvider.Instance.ExecuteNonQuery("USP_InsertCategory @name ", new object[] { name});
+            return result>0;
+        }
+
+        public bool EditCategory (int id, String name)
+        {
+            int result = DataProvider.Instance.ExecuteNonQuery("USP_EditCategory @id , @name ", new object[] { id, name });
+            return result > 0;
+        }
+
+        public bool DeleteCategory(int id)
+        {
+            int result = DataProvider.Instance.ExecuteNonQuery("DELETE FROM dbo.FoodCategory WHERE id = " + id);
+            return result > 0;
+        }
     }
 }
