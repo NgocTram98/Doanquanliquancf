@@ -144,6 +144,8 @@
             this.foodCategoryTableAdapter1 = new QuanLyQuanCaFe.QuanlycafeDataSet2TableAdapters.FoodCategoryTableAdapter();
             this.tableFoodTableAdapter = new QuanLyQuanCaFe.QuanlycafeDataSet3TableAdapters.TableFoodTableAdapter();
             this.accountTableAdapter = new QuanLyQuanCaFe.QuanlycafeDataSet4TableAdapters.AccountTableAdapter();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.directoryEntry1 = new System.DirectoryServices.DirectoryEntry();
             this.tcAdmin.SuspendLayout();
             this.tpBill.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -203,6 +205,7 @@
             this.tcAdmin.Controls.Add(this.tbFoodCategory);
             this.tcAdmin.Controls.Add(this.tpTable);
             this.tcAdmin.Controls.Add(this.tpAccount);
+            this.tcAdmin.Controls.Add(this.tabPage1);
             this.tcAdmin.Location = new System.Drawing.Point(9, 10);
             this.tcAdmin.Margin = new System.Windows.Forms.Padding(2);
             this.tcAdmin.Name = "tcAdmin";
@@ -332,8 +335,10 @@
             // panel7
             // 
             this.panel7.Controls.Add(this.panel12);
+            this.panel7.Controls.Add(this.btnEditFood);
             this.panel7.Controls.Add(this.panel11);
             this.panel7.Controls.Add(this.panel10);
+            this.panel7.Controls.Add(this.btnAddFood);
             this.panel7.Controls.Add(this.panel9);
             this.panel7.Location = new System.Drawing.Point(352, 64);
             this.panel7.Margin = new System.Windows.Forms.Padding(2);
@@ -496,9 +501,7 @@
             // panel6
             // 
             this.panel6.Controls.Add(this.btnShowFood);
-            this.panel6.Controls.Add(this.btnEditFood);
             this.panel6.Controls.Add(this.btnDeleteFood);
-            this.panel6.Controls.Add(this.btnAddFood);
             this.panel6.Location = new System.Drawing.Point(4, 5);
             this.panel6.Margin = new System.Windows.Forms.Padding(2);
             this.panel6.Name = "panel6";
@@ -518,10 +521,10 @@
             // 
             // btnEditFood
             // 
-            this.btnEditFood.Location = new System.Drawing.Point(208, 2);
+            this.btnEditFood.Location = new System.Drawing.Point(2, 265);
             this.btnEditFood.Margin = new System.Windows.Forms.Padding(2);
             this.btnEditFood.Name = "btnEditFood";
-            this.btnEditFood.Size = new System.Drawing.Size(64, 50);
+            this.btnEditFood.Size = new System.Drawing.Size(267, 64);
             this.btnEditFood.TabIndex = 2;
             this.btnEditFood.Text = "Sửa";
             this.btnEditFood.UseVisualStyleBackColor = true;
@@ -529,10 +532,10 @@
             // 
             // btnDeleteFood
             // 
-            this.btnDeleteFood.Location = new System.Drawing.Point(71, 2);
+            this.btnDeleteFood.Location = new System.Drawing.Point(2, 2);
             this.btnDeleteFood.Margin = new System.Windows.Forms.Padding(2);
             this.btnDeleteFood.Name = "btnDeleteFood";
-            this.btnDeleteFood.Size = new System.Drawing.Size(64, 50);
+            this.btnDeleteFood.Size = new System.Drawing.Size(270, 50);
             this.btnDeleteFood.TabIndex = 1;
             this.btnDeleteFood.Text = "Xóa";
             this.btnDeleteFood.UseVisualStyleBackColor = true;
@@ -540,10 +543,10 @@
             // 
             // btnAddFood
             // 
-            this.btnAddFood.Location = new System.Drawing.Point(2, 2);
+            this.btnAddFood.Location = new System.Drawing.Point(3, 180);
             this.btnAddFood.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddFood.Name = "btnAddFood";
-            this.btnAddFood.Size = new System.Drawing.Size(64, 50);
+            this.btnAddFood.Size = new System.Drawing.Size(267, 67);
             this.btnAddFood.TabIndex = 0;
             this.btnAddFood.Text = "Thêm";
             this.btnAddFood.UseVisualStyleBackColor = true;
@@ -622,6 +625,8 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.panel14);
+            this.panel1.Controls.Add(this.btnEditCategory);
+            this.panel1.Controls.Add(this.btnAddCategory);
             this.panel1.Controls.Add(this.panel15);
             this.panel1.Location = new System.Drawing.Point(352, 64);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
@@ -693,9 +698,7 @@
             // panel16
             // 
             this.panel16.Controls.Add(this.btnShowCategory);
-            this.panel16.Controls.Add(this.btnEditCategory);
             this.panel16.Controls.Add(this.btnDeleteCategory);
-            this.panel16.Controls.Add(this.btnAddCategory);
             this.panel16.Location = new System.Drawing.Point(4, 5);
             this.panel16.Margin = new System.Windows.Forms.Padding(2);
             this.panel16.Name = "panel16";
@@ -715,10 +718,10 @@
             // 
             // btnEditCategory
             // 
-            this.btnEditCategory.Location = new System.Drawing.Point(140, 2);
+            this.btnEditCategory.Location = new System.Drawing.Point(2, 156);
             this.btnEditCategory.Margin = new System.Windows.Forms.Padding(2);
             this.btnEditCategory.Name = "btnEditCategory";
-            this.btnEditCategory.Size = new System.Drawing.Size(64, 50);
+            this.btnEditCategory.Size = new System.Drawing.Size(267, 50);
             this.btnEditCategory.TabIndex = 2;
             this.btnEditCategory.Text = "Sửa";
             this.btnEditCategory.UseVisualStyleBackColor = true;
@@ -726,10 +729,10 @@
             // 
             // btnDeleteCategory
             // 
-            this.btnDeleteCategory.Location = new System.Drawing.Point(71, 2);
+            this.btnDeleteCategory.Location = new System.Drawing.Point(2, 2);
             this.btnDeleteCategory.Margin = new System.Windows.Forms.Padding(2);
             this.btnDeleteCategory.Name = "btnDeleteCategory";
-            this.btnDeleteCategory.Size = new System.Drawing.Size(64, 50);
+            this.btnDeleteCategory.Size = new System.Drawing.Size(271, 50);
             this.btnDeleteCategory.TabIndex = 1;
             this.btnDeleteCategory.Text = "Xóa";
             this.btnDeleteCategory.UseVisualStyleBackColor = true;
@@ -737,10 +740,10 @@
             // 
             // btnAddCategory
             // 
-            this.btnAddCategory.Location = new System.Drawing.Point(2, 2);
+            this.btnAddCategory.Location = new System.Drawing.Point(2, 102);
             this.btnAddCategory.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddCategory.Name = "btnAddCategory";
-            this.btnAddCategory.Size = new System.Drawing.Size(64, 50);
+            this.btnAddCategory.Size = new System.Drawing.Size(267, 50);
             this.btnAddCategory.TabIndex = 0;
             this.btnAddCategory.Text = "Thêm";
             this.btnAddCategory.UseVisualStyleBackColor = true;
@@ -822,8 +825,10 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.panel21);
+            this.panel2.Controls.Add(this.btnEditTable);
             this.panel2.Controls.Add(this.panel13);
             this.panel2.Controls.Add(this.panel18);
+            this.panel2.Controls.Add(this.btnAddTable);
             this.panel2.Location = new System.Drawing.Point(352, 64);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
@@ -940,9 +945,7 @@
             // panel19
             // 
             this.panel19.Controls.Add(this.btnShowTable);
-            this.panel19.Controls.Add(this.btnEditTable);
             this.panel19.Controls.Add(this.btnDeleteTable);
-            this.panel19.Controls.Add(this.btnAddTable);
             this.panel19.Location = new System.Drawing.Point(4, 5);
             this.panel19.Margin = new System.Windows.Forms.Padding(2);
             this.panel19.Name = "panel19";
@@ -951,7 +954,7 @@
             // 
             // btnShowTable
             // 
-            this.btnShowTable.Location = new System.Drawing.Point(209, 2);
+            this.btnShowTable.Location = new System.Drawing.Point(276, 1);
             this.btnShowTable.Margin = new System.Windows.Forms.Padding(2);
             this.btnShowTable.Name = "btnShowTable";
             this.btnShowTable.Size = new System.Drawing.Size(64, 50);
@@ -962,10 +965,10 @@
             // 
             // btnEditTable
             // 
-            this.btnEditTable.Location = new System.Drawing.Point(140, 2);
+            this.btnEditTable.Location = new System.Drawing.Point(2, 196);
             this.btnEditTable.Margin = new System.Windows.Forms.Padding(2);
             this.btnEditTable.Name = "btnEditTable";
-            this.btnEditTable.Size = new System.Drawing.Size(64, 50);
+            this.btnEditTable.Size = new System.Drawing.Size(268, 50);
             this.btnEditTable.TabIndex = 2;
             this.btnEditTable.Text = "Sửa";
             this.btnEditTable.UseVisualStyleBackColor = true;
@@ -973,10 +976,10 @@
             // 
             // btnDeleteTable
             // 
-            this.btnDeleteTable.Location = new System.Drawing.Point(71, 2);
+            this.btnDeleteTable.Location = new System.Drawing.Point(2, 2);
             this.btnDeleteTable.Margin = new System.Windows.Forms.Padding(2);
             this.btnDeleteTable.Name = "btnDeleteTable";
-            this.btnDeleteTable.Size = new System.Drawing.Size(64, 50);
+            this.btnDeleteTable.Size = new System.Drawing.Size(270, 50);
             this.btnDeleteTable.TabIndex = 1;
             this.btnDeleteTable.Text = "Xóa";
             this.btnDeleteTable.UseVisualStyleBackColor = true;
@@ -984,10 +987,10 @@
             // 
             // btnAddTable
             // 
-            this.btnAddTable.Location = new System.Drawing.Point(2, 2);
+            this.btnAddTable.Location = new System.Drawing.Point(2, 142);
             this.btnAddTable.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddTable.Name = "btnAddTable";
-            this.btnAddTable.Size = new System.Drawing.Size(64, 50);
+            this.btnAddTable.Size = new System.Drawing.Size(268, 50);
             this.btnAddTable.TabIndex = 0;
             this.btnAddTable.Text = "Thêm";
             this.btnAddTable.UseVisualStyleBackColor = true;
@@ -1056,8 +1059,10 @@
             // 
             // panel22
             // 
+            this.panel22.Controls.Add(this.btnEditAccount);
             this.panel22.Controls.Add(this.cbAccountType);
             this.panel22.Controls.Add(this.label14);
+            this.panel22.Controls.Add(this.btnAddAccount);
             this.panel22.Controls.Add(this.panel24);
             this.panel22.Controls.Add(this.panel25);
             this.panel22.Controls.Add(this.panel26);
@@ -1191,9 +1196,7 @@
             // 
             // panel27
             // 
-            this.panel27.Controls.Add(this.btnEditAccount);
             this.panel27.Controls.Add(this.btnDeleteAccount);
-            this.panel27.Controls.Add(this.btnAddAccount);
             this.panel27.Location = new System.Drawing.Point(4, 5);
             this.panel27.Margin = new System.Windows.Forms.Padding(2);
             this.panel27.Name = "panel27";
@@ -1202,10 +1205,10 @@
             // 
             // btnEditAccount
             // 
-            this.btnEditAccount.Location = new System.Drawing.Point(140, 2);
+            this.btnEditAccount.Location = new System.Drawing.Point(8, 220);
             this.btnEditAccount.Margin = new System.Windows.Forms.Padding(2);
             this.btnEditAccount.Name = "btnEditAccount";
-            this.btnEditAccount.Size = new System.Drawing.Size(64, 50);
+            this.btnEditAccount.Size = new System.Drawing.Size(261, 50);
             this.btnEditAccount.TabIndex = 2;
             this.btnEditAccount.Text = "Sửa";
             this.btnEditAccount.UseVisualStyleBackColor = true;
@@ -1213,10 +1216,10 @@
             // 
             // btnDeleteAccount
             // 
-            this.btnDeleteAccount.Location = new System.Drawing.Point(71, 2);
+            this.btnDeleteAccount.Location = new System.Drawing.Point(2, 2);
             this.btnDeleteAccount.Margin = new System.Windows.Forms.Padding(2);
             this.btnDeleteAccount.Name = "btnDeleteAccount";
-            this.btnDeleteAccount.Size = new System.Drawing.Size(64, 50);
+            this.btnDeleteAccount.Size = new System.Drawing.Size(338, 50);
             this.btnDeleteAccount.TabIndex = 1;
             this.btnDeleteAccount.Text = "Xóa";
             this.btnDeleteAccount.UseVisualStyleBackColor = true;
@@ -1224,10 +1227,10 @@
             // 
             // btnAddAccount
             // 
-            this.btnAddAccount.Location = new System.Drawing.Point(2, 2);
+            this.btnAddAccount.Location = new System.Drawing.Point(8, 166);
             this.btnAddAccount.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddAccount.Name = "btnAddAccount";
-            this.btnAddAccount.Size = new System.Drawing.Size(64, 50);
+            this.btnAddAccount.Size = new System.Drawing.Size(261, 50);
             this.btnAddAccount.TabIndex = 0;
             this.btnAddAccount.Text = "Thêm";
             this.btnAddAccount.UseVisualStyleBackColor = true;
@@ -1318,6 +1321,16 @@
             // accountTableAdapter
             // 
             this.accountTableAdapter.ClearBeforeFill = true;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(627, 504);
+            this.tabPage1.TabIndex = 5;
+            this.tabPage1.Text = "Báo cáo";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // fAdmin
             // 
@@ -1516,5 +1529,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn displayNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn passWordDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn typeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.DirectoryServices.DirectoryEntry directoryEntry1;
     }
 }
