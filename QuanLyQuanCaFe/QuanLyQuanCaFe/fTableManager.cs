@@ -41,7 +41,7 @@ namespace QuanLyQuanCaFe
             cbFood.DisplayMember = "Name";                  
         }
 
-        void LoadTable()
+        public void LoadTable() // Vẽ lại các bàn ăn, hàm này có đpt lớn, nên cân nhắc khi gọi, có thể bị gọi từ fAdmin form
         {
             flpTable.Controls.Clear();
 
@@ -76,14 +76,13 @@ namespace QuanLyQuanCaFe
             lbTongTien.Text = sum.ToString("c", culture);
         }
 
-        void UpdateChange (int tableId)
+        void UpdateChange (int tableId) // Cập nhật những thay đổi của bàn tableId: Bao gồm: Bill (chi tiết), Tổng tiền, Bàn trống để dời ...
         {
             ShowBill(tableId);
             ShowMoney(tableId, (double)nmDisCount.Value);        
             cbSwitchTable.ValueMember = "Id";
             cbSwitchTable.DisplayMember = "Name";
             cbSwitchTable.DataSource = TableDAO.Instance.LoadTableWithStatus ("trong");
-
             nmDisCount.Value = 0;
         }
         void ShowBill(int tableId)
@@ -156,7 +155,7 @@ namespace QuanLyQuanCaFe
 
         private void adminToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            fAdmin f = new fAdmin();
+            fAdmin f = new fAdmin(this);
             f.ShowDialog();
         }
         #endregion

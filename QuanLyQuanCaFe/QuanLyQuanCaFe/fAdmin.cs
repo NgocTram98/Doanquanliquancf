@@ -17,11 +17,26 @@ namespace QuanLyQuanCaFe
     {
         String[] BillStatisticHeader = new string[] { "Id bàn", "Ngày vào", "Ngày ra", "Trạng thái", "Giảm giá (%)", "Tổng tiền"};
         List<Category> categories = null;
-        public fAdmin()
+        private fTableManager caller;
+
+        public fAdmin(fTableManager caller) // Có thể bị gọi từ form Table Manager
         {
             InitializeComponent();
-           
+            this.caller = caller;   
         }
+        private void FAdmin_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'quanlycafeDataSet4.Account' table. You can move, or remove it, as needed.
+            this.accountTableAdapter.Fill(this.quanlycafeDataSet4.Account);
+            // TODO: This line of code loads data into the 'quanlycafeDataSet3.TableFood' table. You can move, or remove it, as needed.
+            this.tableFoodTableAdapter.Fill(this.quanlycafeDataSet3.TableFood);
+            // TODO: This line of code loads data into the 'quanlycafeDataSet1.FoodCategory' table. You can move, or remove it, as needed.
+            this.foodCategoryTableAdapter.Fill(this.quanlycafeDataSet1.FoodCategory);
+            // TODO: This line of code loads data into the 'quanlycafeDataSet.Food' table. You can move, or remove it, as needed.
+            this.foodTableAdapter.Fill(this.quanlycafeDataSet.Food);
+        }
+
+
 
         #region Bill
         private void btnViewBill_Click(object sender, EventArgs e)
@@ -65,23 +80,11 @@ namespace QuanLyQuanCaFe
 
         private void LoadCategoryIntoForm ()
         {
-            categories = CategoryDAO.Instance.GetCategoryList();
+            categories = CategoryDAO.Instance.GetCategoryList();            
             cbFoodCategory.DataSource = categories;
-            cbFoodCategory.DisplayMember = "categoryName";
+            cbFoodCategory.DisplayMember = "CategoryName";
             cbFoodCategory.ValueMember = "Id";
-        }
-        private void FAdmin_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'quanlycafeDataSet4.Account' table. You can move, or remove it, as needed.
-            this.accountTableAdapter.Fill(this.quanlycafeDataSet4.Account);
-            // TODO: This line of code loads data into the 'quanlycafeDataSet3.TableFood' table. You can move, or remove it, as needed.
-            this.tableFoodTableAdapter.Fill(this.quanlycafeDataSet3.TableFood);
-            // TODO: This line of code loads data into the 'quanlycafeDataSet1.FoodCategory' table. You can move, or remove it, as needed.
-            this.foodCategoryTableAdapter.Fill(this.quanlycafeDataSet1.FoodCategory);
-            // TODO: This line of code loads data into the 'quanlycafeDataSet.Food' table. You can move, or remove it, as needed.
-            this.foodTableAdapter.Fill(this.quanlycafeDataSet.Food);                      
-            LoadCategoryIntoForm();            
-        }
+        }        
 
         private void FoodDataUpdateChange () // độ phức tạp hơi to, nhưng với số lượng món không qúa 10^4, hàm này vô tư
         {
@@ -90,10 +93,7 @@ namespace QuanLyQuanCaFe
         }
 
 
-        private void CbFoodCategory_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
+        
 
         private void dtgvFood_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -119,5 +119,132 @@ namespace QuanLyQuanCaFe
             FoodDataUpdateChange();
         }
         #endregion
+
+        
+        #region Category
+
+        private void CategoryDataUpdateChange() // độ phức tạp hơi to, nhưng với số lượng món không qúa 10^4, hàm này vô tư
+        {
+            // Cập nhật lại tất cả các thay đổi 
+            // Để tiện thì tạm thời Fill vào hết
+            this.foodCategoryTableAdapter.Fill(this.quanlycafeDataSet1.FoodCategory);
+            foodCategoryBindingSource.DataSource = this.quanlycafeDataSet1.FoodCategory;
+        }
+
+        private void CbFoodCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAddCategory_Click(object sender, EventArgs e)
+        {
+            String name = txtCategoryName.Text;
+            //int id = int.Parse(txbCategoryID.Text);
+            CategoryDAO.Instance.AddCategory(name);
+            CategoryDataUpdateChange();
+        }
+
+        private void btnDeleteCategory_Click(object sender, EventArgs e)
+        {
+            int id = int.Parse(txbCategoryID.Text);
+            CategoryDAO.Instance.DeleteCategory(id);
+            CategoryDataUpdateChange();
+        }
+
+        private void btnEditCategory_Click(object sender, EventArgs e)
+        {
+            String name = txtCategoryName.Text;
+            int id = int.Parse(txbCategoryID.Text);
+            CategoryDAO.Instance.EditCategory(id, name);
+            CategoryDataUpdateChange();
+        }
+
+        private void btnShowCategory_Click(object sender, EventArgs e)
+        {
+            CategoryDataUpdateChange();
+        }
+        #endregion
+
+        #region Table
+        
+        private void TableDataUpdateChange() // độ phức tạp hơi to, nhưng với số lượng món không qúa 10^4, hàm này vô tư
+        {
+            // Cập nhật lại tất cả các thay đổi 
+            // Để tiện thì tạm thời Fill vào hết
+            this.tableFoodTableAdapter.Fill(this.quanlycafeDataSet3.TableFood);
+            tableFoodBindingSource.DataSource = this.quanlycafeDataSet3.TableFood;
+
+            if (caller != null) // Nếu có một form Table Manager gọi tới
+                caller.LoadTable(); // Gọi vẽ lại các bàn ăn, coi như cập nhật
+        }
+        private void btnAddTable_Click(object sender, EventArgs e)
+        {
+
+            //int id = int.Parse(txtTableID.Text);
+            String tableName = txbTableName.Text;
+            TableDAO.Instance.AddTable(tableName);
+            TableDataUpdateChange();
+        }
+
+        private void btnDeleteTable_Click(object sender, EventArgs e)
+        {
+            int id = int.Parse(txtTableID.Text);
+            //String tableName = txbTableName.Text;
+            TableDAO.Instance.DeleteTable(id);
+            TableDataUpdateChange();
+        }
+
+        private void btnEditTable_Click(object sender, EventArgs e)
+        {
+            int id = int.Parse(txtTableID.Text);
+            String tableName = txbTableName.Text;
+            TableDAO.Instance.EditTable(id, tableName);
+            TableDataUpdateChange();
+        }
+
+        private void btnShowTable_Click(object sender, EventArgs e)
+        {
+            TableDataUpdateChange();
+        }
+
+        private void cbFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            String id = (String)cbFilter.SelectedValue;
+            if (id.Equals(""))
+            {
+                TableDataUpdateChange();
+            }
+            else
+            {
+                var tableList = TableDAO.Instance.LoadTableWithStatus(id);
+                tableFoodBindingSource.DataSource = tableList;
+            }
+        }
+
+        private void LoadTableStatusToForm ()
+        {
+            
+            var lst = TableDAO.Instance.RetrieveAllTableStatus();
+
+            cbFilter.ValueMember = "Id";
+            cbFilter.DataSource = lst;            
+            cbFilter.DisplayMember = "StatusName";
+            //MessageBox.Show("loadaed");
+            
+            cbTableStatus.DataSource = lst;
+            cbTableStatus.ValueMember = "Id";
+            cbTableStatus.DisplayMember = "StatusName";
+        }
+        #endregion
+        private void tcAdmin_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadCategoryIntoForm();
+            LoadTableStatusToForm();
+        }
+
+        private void cbTableStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -92,7 +92,7 @@ CREATE PROC USP_InsertBill
 AS
 BEGIN
      INSERT INTO bill (DateCheckOut, idTable, status) 
-     VALUES (Null, @idtable, status)
+     VALUES (Null, @idtable, 0)
 END
 
 alter table dbo.bill 
@@ -127,4 +127,35 @@ CREATE PROC USP_FindFood
 as
 begin
 	SELECT * FROM food WHERE name LIKE N'%'+@name+'%'
+END
+
+CREATE PROC USP_InsertCategory
+@name nvarchar(100)
+AS 
+BEGIN
+	INSERT INTO dbo.category (name)
+	VALUES (@name)
+END
+
+CREATE PROC USP_EditCategory
+@id int, @name nvarchar(100)
+as
+begin
+	update dbo.foodcategory set name= @name Where id=@id
 end
+
+CREATE PROC USP_InsertTable
+@name nvarchar(100)
+AS 
+BEGIN
+	INSERT INTO dbo.tablefood (name, status)
+	VALUES (@name, N'trong')
+END
+
+CREATE PROC USP_EditTable
+@id INT, @name nvarchar(100)
+AS 
+BEGIN
+	
+	UPDATE dbo.tablefood SET name=@name WHERE id=@id
+END
