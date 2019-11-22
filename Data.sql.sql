@@ -1,7 +1,7 @@
 ﻿CREATE DATABASE Quanlycafe
 USE Quanlycafe
 
-
+select * from account
 CREATE TABLE TableFood
 (
     id INT IDENTITY PRIMARY KEY,
