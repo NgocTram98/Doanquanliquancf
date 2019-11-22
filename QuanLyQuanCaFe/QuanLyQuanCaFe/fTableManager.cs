@@ -19,9 +19,7 @@ namespace QuanLyQuanCaFe
         public fTableManager()
         {
             InitializeComponent();
-            thôngTinTàiKhoảnToolStripMenuItem.Text = thôngTinTàiKhoảnToolStripMenuItem.Text + "(" + fLogin.LoggedUser.DisplayName + ")";
-            LoadTable();
-            
+            thôngTinTàiKhoảnToolStripMenuItem.Text = thôngTinTàiKhoảnToolStripMenuItem.Text + "(" + fLogin.LoggedUser.DisplayName + ")";                        
         }
         #region Method
         void LoadCategoryList()
@@ -34,10 +32,13 @@ namespace QuanLyQuanCaFe
 
         void LoadFood (int idCategory)
         {
-            var food = FoodDAO.Instance.GetFoodByCategory (idCategory);           
-            cbFood.DataSource = food;
+            var food = FoodDAO.Instance.GetFoodByCategory (idCategory);
+            //MessageBox.Show("Quanity: " + food.Count);
             cbFood.ValueMember = "Id";
-            cbFood.DisplayMember = "Name";                  
+            cbFood.DataSource = food;            
+            cbFood.DisplayMember = "Name";
+            if (food.Count == 0)
+                cbFood.Text = "";
         }
 
         public void refresh () // để cập nhật lại toàn bộ dữ liệu, hàm này có độ phức tạp lớn, cũng nên cân nhắc khi gọi
@@ -80,7 +81,7 @@ namespace QuanLyQuanCaFe
         void ShowMoney (int idTable, double discountMoney) // Đã bao gồm tính giảm giá
         {
             double sum = MenuDAO.Instance.GetTotalMoneyByTable (idTable);
-            sum = Math.Max(sum - discountMoney, 0);
+            sum = Math.Max(sum * (100-discountMoney)/100.0, 0);
             CultureInfo culture = new CultureInfo("vi");
             lbTongTien.Text = sum.ToString("c", culture);
         }
@@ -142,7 +143,7 @@ namespace QuanLyQuanCaFe
 
         private void fTableManager_Load(object sender, EventArgs e)
         {
-
+            refresh();
         }
 
         private void cbCategory_SelectedIndexChanged(object sender, EventArgs e)
@@ -176,6 +177,12 @@ namespace QuanLyQuanCaFe
 
         private void BtnAddFood_Click(object sender, EventArgs e)
         {
+            if (cbFood.Text.Equals (""))
+            {
+                MessageBox.Show("Hãy chọn món trước khi thêm vào Hóa đơn");
+                return;
+            }
+
             int idFood = (int) cbFood.SelectedValue;
             int idCount = (int)numericUpDown1.Value;
             int idTable = currentTableId;

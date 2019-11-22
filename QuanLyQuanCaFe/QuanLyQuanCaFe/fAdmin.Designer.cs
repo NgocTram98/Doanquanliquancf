@@ -145,6 +145,13 @@
             this.tableFoodTableAdapter = new QuanLyQuanCaFe.QuanlycafeDataSet3TableAdapters.TableFoodTableAdapter();
             this.accountTableAdapter = new QuanLyQuanCaFe.QuanlycafeDataSet4TableAdapters.AccountTableAdapter();
             this.directoryEntry1 = new System.DirectoryServices.DirectoryEntry();
+            this.txtPage = new System.Windows.Forms.TextBox();
+            this.btnGo = new System.Windows.Forms.Button();
+            this.btnFirst = new System.Windows.Forms.Button();
+            this.btnLast = new System.Windows.Forms.Button();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.txtSumPage = new System.Windows.Forms.TextBox();
             this.tcAdmin.SuspendLayout();
             this.tpBill.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -265,6 +272,13 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.label16);
+            this.panel3.Controls.Add(this.label15);
+            this.panel3.Controls.Add(this.btnLast);
+            this.panel3.Controls.Add(this.btnFirst);
+            this.panel3.Controls.Add(this.btnGo);
+            this.panel3.Controls.Add(this.txtSumPage);
+            this.panel3.Controls.Add(this.txtPage);
             this.panel3.Controls.Add(this.dtgvBill);
             this.panel3.Location = new System.Drawing.Point(4, 33);
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
@@ -283,7 +297,7 @@
             this.dtgvBill.Name = "dtgvBill";
             this.dtgvBill.ReadOnly = true;
             this.dtgvBill.RowTemplate.Height = 24;
-            this.dtgvBill.Size = new System.Drawing.Size(616, 463);
+            this.dtgvBill.Size = new System.Drawing.Size(616, 420);
             this.dtgvBill.TabIndex = 0;
             // 
             // tpFood
@@ -1320,6 +1334,70 @@
             // 
             this.accountTableAdapter.ClearBeforeFill = true;
             // 
+            // txtPage
+            // 
+            this.txtPage.Location = new System.Drawing.Point(91, 436);
+            this.txtPage.Name = "txtPage";
+            this.txtPage.Size = new System.Drawing.Size(57, 20);
+            this.txtPage.TabIndex = 1;
+            this.txtPage.TextChanged += new System.EventHandler(this.TxtPage_TextChanged);
+            // 
+            // btnGo
+            // 
+            this.btnGo.Location = new System.Drawing.Point(231, 425);
+            this.btnGo.Name = "btnGo";
+            this.btnGo.Size = new System.Drawing.Size(75, 40);
+            this.btnGo.TabIndex = 2;
+            this.btnGo.Text = "Đi đến";
+            this.btnGo.UseVisualStyleBackColor = true;
+            this.btnGo.Click += new System.EventHandler(this.BtnGo_Click);
+            // 
+            // btnFirst
+            // 
+            this.btnFirst.Location = new System.Drawing.Point(312, 425);
+            this.btnFirst.Name = "btnFirst";
+            this.btnFirst.Size = new System.Drawing.Size(75, 40);
+            this.btnFirst.TabIndex = 3;
+            this.btnFirst.Text = "Trang đầu";
+            this.btnFirst.UseVisualStyleBackColor = true;
+            this.btnFirst.Click += new System.EventHandler(this.BtnFirst_Click);
+            // 
+            // btnLast
+            // 
+            this.btnLast.Location = new System.Drawing.Point(393, 425);
+            this.btnLast.Name = "btnLast";
+            this.btnLast.Size = new System.Drawing.Size(75, 40);
+            this.btnLast.TabIndex = 3;
+            this.btnLast.Text = "Trang cuối";
+            this.btnLast.UseVisualStyleBackColor = true;
+            this.btnLast.Click += new System.EventHandler(this.BtnLast_Click);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(47, 439);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(38, 13);
+            this.label15.TabIndex = 4;
+            this.label15.Text = "Trang:";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(154, 439);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(12, 13);
+            this.label16.TabIndex = 4;
+            this.label16.Text = "/";
+            // 
+            // txtSumPage
+            // 
+            this.txtSumPage.Location = new System.Drawing.Point(172, 436);
+            this.txtSumPage.Name = "txtSumPage";
+            this.txtSumPage.Size = new System.Drawing.Size(53, 20);
+            this.txtSumPage.TabIndex = 1;
+            this.txtSumPage.TextChanged += new System.EventHandler(this.TxtPage_TextChanged);
+            // 
             // fAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1335,6 +1413,7 @@
             this.tpBill.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvBill)).EndInit();
             this.tpFood.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
@@ -1518,5 +1597,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn passWordDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn typeDataGridViewTextBoxColumn;
         private System.DirectoryServices.DirectoryEntry directoryEntry1;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Button btnLast;
+        private System.Windows.Forms.Button btnFirst;
+        private System.Windows.Forms.Button btnGo;
+        private System.Windows.Forms.TextBox txtPage;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox txtSumPage;
     }
 }

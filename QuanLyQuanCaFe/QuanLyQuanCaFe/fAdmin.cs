@@ -15,14 +15,17 @@ namespace QuanLyQuanCaFe
 {
     public partial class fAdmin : Form
     {
-        String[] BillStatisticHeader = new string[] { "Id hóa đơn", "Ngày vào", "Ngày ra", "Trạng thái", "Giảm giá (%)", "Tổng tiền"};
+        String[] BillStatisticHeader = new string[] { "Id hóa đơn", "Ngày vào", "Ngày ra", "Trạng thái", "Giảm giá (%)", "Tổng tiền" };
         List<Category> categories = null;
+        List<BillStatistic> bills = new List<BillStatistic>();
+        public const int billPerPage = 10;
+
         private fTableManager caller;
 
         public fAdmin(fTableManager caller) // Có thể bị gọi từ form Table Manager
         {
             InitializeComponent();
-            this.caller = caller;   
+            this.caller = caller;
         }
         private void FAdmin_Load(object sender, EventArgs e)
         {
@@ -41,13 +44,71 @@ namespace QuanLyQuanCaFe
         #region Bill
         private void btnViewBill_Click(object sender, EventArgs e)
         {
-            var bills = BillDAO.Instance.GetAllBillRegardsPeriodOfTime(dtpkFromDate.Value, dtpkToDate.Value);            
-            dtgvBill.DataSource = bills;
-            for (int i = 0; i<dtgvBill.ColumnCount; ++i)
+            bills = BillDAO.Instance.GetAllBillRegardsPeriodOfTime(dtpkFromDate.Value, dtpkToDate.Value);            
+            goToPage(0); // sure that page exists
+            txtPage.Text = "1";
+            txtSumPage.Text = bills.Count/billPerPage+(bills.Count % billPerPage == 0 ? 0 : 1)+"";
+            //MessageBox.Show(bills.Count + ""); // Debug thôi
+        }
+
+        private List<BillStatistic> getPageBills(int page, int partionSize) // page tính từ 0
+        {
+            List<BillStatistic> partion = new List<BillStatistic>();
+            int len = bills.Count;
+
+            if (len / partionSize >= page)
             {
-                dtgvBill.Columns[i].HeaderText = BillStatisticHeader[i];
+                int start = page * partionSize;
+                int end = Math.Min((page + 1) * partionSize, bills.Count);
+                for (int i = start; i < end; ++i)
+                {
+                    partion.Add(bills[i]);
+                }
+
+            }
+            return partion;
+        }
+
+        private void goToPage(int page)
+        {
+            if (page < 0 || page >= ((bills.Count/billPerPage+(bills.Count % billPerPage == 0? 0: 1))))
+            {
+                MessageBox.Show("Trang không tồn tại");
+            } else
+            {
+                var partion = getPageBills(page, billPerPage);
+                dtgvBill.DataSource = partion;
+                for (int i = 0; i < dtgvBill.ColumnCount; ++i)
+                {
+                    dtgvBill.Columns[i].HeaderText = BillStatisticHeader[i];
+                }
+
+                txtPage.Text = (page + 1) + "";
             }
 
+        }
+
+
+        private void BtnGo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int pages = int.Parse(txtPage.Text)-1;
+                goToPage(pages);
+            } catch(Exception)
+            {
+                MessageBox.Show("Không thể đi đến trang, Số trang không chứa ký tự");
+            }
+        }
+
+        private void BtnFirst_Click(object sender, EventArgs e)
+        {
+            goToPage(0);
+        }
+
+        private void BtnLast_Click(object sender, EventArgs e)
+        {
+            goToPage(bills.Count/billPerPage);
         }
         #endregion
 
@@ -372,6 +433,11 @@ namespace QuanLyQuanCaFe
         }
 
         private void TxtPassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtPage_TextChanged(object sender, EventArgs e)
         {
 
         }

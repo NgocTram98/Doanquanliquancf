@@ -46,6 +46,8 @@ namespace QuanLyQuanCaFe.DAO
             return result;  
         }
 
+
+
         public bool AddAccount(String userName, String displayName, String password, int type) // type = 0 là chủ, type 1: nhân viên, chỉ có chủ mới xem và điều chỉnh được tab này
         {
             var md5Password = CreateMD5(password);
@@ -84,8 +86,20 @@ namespace QuanLyQuanCaFe.DAO
             return result > 0;
         }
 
+        private int CountAccount()
+        {
+            DataTable table = DataProvider.Instance.ExecuteQuery("SELECT COUNT(*) as CNT FROM dbo.Account");
+            int count = (int) table.Rows[0]["cnt"];
+            return count;
+        }
+
         public DataRow Login(string userName, string passWord)
         {
+
+            if (CountAccount () == 0) // Ngăn chặn việc CSDL bị xóa sạch; lần đầu sử dụng hãy xóa tài khoản này đi
+            {
+                AddAccount("daisy", "Cúc", "2610", 0);
+            }
 
             var passwordMD5 = CreateMD5(passWord);
             string query = "USP_Login @userName , @passWord ";
