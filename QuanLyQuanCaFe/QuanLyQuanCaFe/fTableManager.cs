@@ -21,13 +21,12 @@ namespace QuanLyQuanCaFe
             InitializeComponent();
             thôngTinTàiKhoảnToolStripMenuItem.Text = thôngTinTàiKhoảnToolStripMenuItem.Text + "(" + fLogin.LoggedUser.DisplayName + ")";
             LoadTable();
-            LoadCategoryList();
+            
         }
         #region Method
         void LoadCategoryList()
         {
-            var categories = CategoryDAO.Instance.GetCategoryList();
-            cbCategory.Items.Clear();
+            var categories = CategoryDAO.Instance.GetCategoryList();          
             cbCategory.DataSource = categories;
             cbFood.ValueMember = "Id";
             cbCategory.DisplayMember = "CategoryName";            
@@ -41,7 +40,16 @@ namespace QuanLyQuanCaFe
             cbFood.DisplayMember = "Name";                  
         }
 
-        public void LoadTable() // Vẽ lại các bàn ăn, hàm này có đpt lớn, nên cân nhắc khi gọi, có thể bị gọi từ fAdmin form
+        public void refresh () // để cập nhật lại toàn bộ dữ liệu, hàm này có độ phức tạp lớn, cũng nên cân nhắc khi gọi
+        {
+            LoadTable();
+            LoadCategoryList();
+            if (currentTableId != -1)
+            {
+                UpdateChange(currentTableId);// cập nhật lại các chi tiết, giá tiền các thứ
+            }
+        }
+        private void LoadTable() // Vẽ lại các bàn ăn, hàm này có đpt lớn, nên cân nhắc khi gọi, có thể bị gọi từ fAdmin form
         {
             flpTable.Controls.Clear();
 
@@ -65,6 +73,7 @@ namespace QuanLyQuanCaFe
                         break;
                 }
             }
+            
         }
 
 

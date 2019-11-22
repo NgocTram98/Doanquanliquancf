@@ -53,7 +53,7 @@ namespace QuanLyQuanCaFe.DAO
                 +" AND dbo.billinfo.idFood = dbo.food.id "
                 + "GROUP BY dbo.bill.id, bill.datecheckin, bill.datecheckout, bill.status,bill.discount "
                 + "HAVING bill.datecheckin >= '"+DateCheckIn.Value.ToShortDateString() + "' AND(bill.datecheckout <= '" + DateCheckOut.Value.ToShortDateString() 
-                + "' OR ISNULL(bill.datecheckout, '') = '')";
+                + "' OR ISNULL(bill.datecheckout, '') = '') ORDER BY sum DESC";
             Console.WriteLine(sql);
             DataTable table = DataProvider.Instance.ExecuteQuery(sql);
             List<BillStatistic> result = new List<BillStatistic> ();

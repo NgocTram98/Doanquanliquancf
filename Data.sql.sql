@@ -59,6 +59,7 @@ VALUES     (
 			N'1',
 			1
 			)		
+			
 CREATE PROC USP_GetAccountByUserName
 @userName nvarchar(100)
 AS
@@ -107,6 +108,7 @@ BEGIN
 	VALUES (@name, @price, @category)
 END
 
+-- đổi thông tin của người dùng
 CREATE PROC USP_ChangeInfo
 @account varchar(100), @oldpassword varchar(100), @password varchar(100), @displayname varchar(100)
 AS 
@@ -159,3 +161,31 @@ BEGIN
 	
 	UPDATE dbo.tablefood SET name=@name WHERE id=@id
 END
+
+
+CREATE PROC USP_InsertAccount
+@username nvarchar(100),@displayname nvarchar(100), @password nvarchar(100), @type int
+AS 
+BEGIN
+	INSERT INTO dbo.Account (UserName, DisplayName, PassWord, Type)
+	VALUES (@username, @displayname, @password, @type)
+END
+
+CREATE PROC USP_EditAccount
+@username nvarchar(100),@displayname nvarchar(100), @password nvarchar(100), @type int
+AS 
+BEGIN
+	UPDATE dbo.Account SET 
+	DisplayName = @displayname,
+	PassWord = @password,
+	Type = @type
+	WHERE UserName = @username
+END
+
+
+CREATE PROC USP_DeleteAccount
+@username varchar(100)
+as 
+begin
+	delete from dbo.Account where UserName = @username
+end

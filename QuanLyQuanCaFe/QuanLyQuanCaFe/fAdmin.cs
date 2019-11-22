@@ -15,7 +15,7 @@ namespace QuanLyQuanCaFe
 {
     public partial class fAdmin : Form
     {
-        String[] BillStatisticHeader = new string[] { "Id bàn", "Ngày vào", "Ngày ra", "Trạng thái", "Giảm giá (%)", "Tổng tiền"};
+        String[] BillStatisticHeader = new string[] { "Id hóa đơn", "Ngày vào", "Ngày ra", "Trạng thái", "Giảm giá (%)", "Tổng tiền"};
         List<Category> categories = null;
         private fTableManager caller;
 
@@ -90,6 +90,8 @@ namespace QuanLyQuanCaFe
         {
             foodTableAdapter.Fill(this.quanlycafeDataSet.Food);         
             foodBindingSource.DataSource = this.quanlycafeDataSet.Food;
+            if (caller != null) // Nếu có một form Table Manager gọi tới
+                caller.refresh(); // Gọi vẽ lại các bàn ăn, coi như cập nhật
         }
 
 
@@ -164,9 +166,12 @@ namespace QuanLyQuanCaFe
             CategoryDataUpdateChange();
         }
         #endregion
-
         #region Table
-        
+        private void cbTableStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //MessageBox.Show("INDEXED CHANGED");
+
+        }
         private void TableDataUpdateChange() // độ phức tạp hơi to, nhưng với số lượng món không qúa 10^4, hàm này vô tư
         {
             // Cập nhật lại tất cả các thay đổi 
@@ -175,7 +180,7 @@ namespace QuanLyQuanCaFe
             tableFoodBindingSource.DataSource = this.quanlycafeDataSet3.TableFood;
 
             if (caller != null) // Nếu có một form Table Manager gọi tới
-                caller.LoadTable(); // Gọi vẽ lại các bàn ăn, coi như cập nhật
+                caller.refresh(); // Gọi vẽ lại các bàn ăn, coi như cập nhật
         }
         private void btnAddTable_Click(object sender, EventArgs e)
         {
@@ -224,27 +229,70 @@ namespace QuanLyQuanCaFe
         private void LoadTableStatusToForm ()
         {
             
-            var lst = TableDAO.Instance.RetrieveAllTableStatus();
-
             cbFilter.ValueMember = "Id";
-            cbFilter.DataSource = lst;            
+            cbFilter.DataSource = TableDAO.Instance.RetrieveAllTableStatus(); ;            
             cbFilter.DisplayMember = "StatusName";
             //MessageBox.Show("loadaed");
             
-            cbTableStatus.DataSource = lst;
+            cbTableStatus.DataSource = TableDAO.Instance.RetrieveAllTableStatusNoFilter(); 
             cbTableStatus.ValueMember = "Id";
             cbTableStatus.DisplayMember = "StatusName";
         }
         #endregion
+
+        #region Accounts
+
+        
         private void tcAdmin_SelectedIndexChanged(object sender, EventArgs e)
         {
+            int openningTab = (int)(sender as TabControl).SelectedIndex;
+            if (openningTab == 4 && fLogin.LoggedUser.Type != 0)
+            {
+                (sender as TabControl).TabPages[4].Controls.Clear();
+                MessageBox.Show("Chỉ có tài khoản là ADMIN mới xem được trang này", "Thông báo");
+                return;
+            }
+
             LoadCategoryIntoForm();
             LoadTableStatusToForm();
         }
 
-        private void cbTableStatus_SelectedIndexChanged(object sender, EventArgs e)
+        private void BtnAddAccount_Click(object sender, EventArgs e)
         {
 
+            String userName = txbUserName.Text,
+                displayName = txbDisplayName.Text,
+                password = txtPassword.Text;
+
+            int accountType = (int)cbAccountType.SelectedValue;
+            AccountDAO.Instance.AddAccount(userName, displayName, password, accountType);
+            AccountDataUpdateChange();
         }
+
+        private void BtnDeleteAccount_Click(object sender, EventArgs e)
+        {
+
+            String userName = txbUserName.Text;
+            AccountDAO.Instance.DeleteAccount(userName);
+            AccountDataUpdateChange();
+        }
+
+        private void BtnEditAccount_Click(object sender, EventArgs e)
+        {
+            String userName = txbUserName.Text,
+                displayName = txbDisplayName.Text,
+                password = txtPassword.Text;
+
+            int accountType = (int)cbAccountType.SelectedValue;
+            AccountDAO.Instance.EditAccount(userName, displayName, password, accountType);
+            AccountDataUpdateChange();
+        }
+
+        private void AccountDataUpdateChange ()
+        {
+            this.accountTableAdapter.Fill(this.quanlycafeDataSet4.Account);
+            accountBindingSource.DataSource = this.quanlycafeDataSet4.Account;
+        }
+        #endregion
     }
 }

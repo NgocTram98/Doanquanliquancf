@@ -44,6 +44,10 @@ namespace QuanLyQuanCaFe
             {
                 MessageBox.Show(this, "Đã cập nhật thành công");
                 Close();
+            } else
+            {
+                MessageBox.Show(this, "Đã cập nhật THẤT BẠI. Có thể một số thông tin đã sai sót");
+                
             }                
 
         }

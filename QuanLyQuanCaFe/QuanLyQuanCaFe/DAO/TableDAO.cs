@@ -72,5 +72,13 @@ namespace QuanLyQuanCaFe.DAO
             collection.Add(new TableStatus("co nguoi", "Có người"));
             return collection;
         }
+        public List<TableStatus> RetrieveAllTableStatusNoFilter() // lấy danh sách các trạng thái, nhưng không tồn tại trạng thái trống, trạng thái do mình quy định
+        {
+            List<TableStatus> collection = new List<TableStatus>();
+            
+            collection.Add(new TableStatus("trong", "Trống"));
+            collection.Add(new TableStatus("co nguoi", "Có người"));
+            return collection;
+        }
     }
 }
