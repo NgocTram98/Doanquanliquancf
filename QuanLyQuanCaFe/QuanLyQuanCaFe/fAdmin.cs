@@ -170,7 +170,6 @@ namespace QuanLyQuanCaFe
         private void cbTableStatus_SelectedIndexChanged(object sender, EventArgs e)
         {
             //MessageBox.Show("INDEXED CHANGED");
-
         }
         private void TableDataUpdateChange() // độ phức tạp hơi to, nhưng với số lượng món không qúa 10^4, hàm này vô tư
         {
@@ -243,18 +242,25 @@ namespace QuanLyQuanCaFe
         #region Accounts
 
         
+        private void LoadAccountTypeIntoForm()
+        {
+            cbAccountType.DataSource = AccountDAO.Instance.GetAllAccountTypes();
+            cbAccountType.DisplayMember = "Caption";
+            cbAccountType.ValueMember = "Id";
+        }
         private void tcAdmin_SelectedIndexChanged(object sender, EventArgs e)
         {
             int openningTab = (int)(sender as TabControl).SelectedIndex;
             if (openningTab == 4 && fLogin.LoggedUser.Type != 0)
             {
                 (sender as TabControl).TabPages[4].Controls.Clear();
-                MessageBox.Show("Chỉ có tài khoản là ADMIN mới xem được trang này", "Thông báo");
+                MessageBox.Show("Chỉ có tài khoản là Chủ quán mới xem được trang này", "Thông báo");
                 return;
             }
 
             LoadCategoryIntoForm();
             LoadTableStatusToForm();
+            LoadAccountTypeIntoForm();
         }
 
         private void BtnAddAccount_Click(object sender, EventArgs e)
@@ -265,13 +271,43 @@ namespace QuanLyQuanCaFe
                 password = txtPassword.Text;
 
             int accountType = (int)cbAccountType.SelectedValue;
-            AccountDAO.Instance.AddAccount(userName, displayName, password, accountType);
+
+            if (password.Equals(""))
+            {
+                MessageBox.Show("Mật khẩu không thể rỗng được");
+                return;
+            }
+
+            if (accountType == 0)
+            {
+                if (MessageBox.Show("Chủ quán thực sự muốn cấp cho người này toàn quyền ?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    if (AccountDAO.Instance.AddAccount(userName, displayName, password, accountType))
+                    {
+                        MessageBox.Show("Thêm tài khoản thành công, phân quyền là chủ quán");
+                    } else
+                    {
+                        MessageBox.Show("Thêm tài khoản THẤT BẠI, không thể phân quyền cho người này");
+                    }
+                }
+            }
+            else
+            {
+                if (AccountDAO.Instance.AddAccount(userName, displayName, password, accountType))
+                {
+                    MessageBox.Show("Thêm tài khoản thành công, phân quyền là nhân viên");
+                }
+                else
+                {
+                    MessageBox.Show("Thêm tài khoản thất bại, có thể thông tin tên đăng nhập bị trùng");
+                    return;
+                }
+            }
             AccountDataUpdateChange();
         }
 
         private void BtnDeleteAccount_Click(object sender, EventArgs e)
         {
-
             String userName = txbUserName.Text;
             AccountDAO.Instance.DeleteAccount(userName);
             AccountDataUpdateChange();
@@ -284,8 +320,27 @@ namespace QuanLyQuanCaFe
                 password = txtPassword.Text;
 
             int accountType = (int)cbAccountType.SelectedValue;
-            AccountDAO.Instance.EditAccount(userName, displayName, password, accountType);
-            AccountDataUpdateChange();
+            if (password.Equals(""))
+            {
+                MessageBox.Show("Mật khẩu không thể rỗng được");
+                return;
+            }
+            if (accountType == 0)
+            {
+                if (MessageBox.Show("Chủ quán thực sự muốn cấp cho người này toàn quyền ?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.OK)
+                {
+                    AccountDAO.Instance.EditAccount(userName, displayName, password, accountType);
+                    AccountDataUpdateChange();
+                } 
+            }
+
+            else
+
+            {
+                AccountDAO.Instance.EditAccount(userName, displayName, password, accountType);
+                AccountDataUpdateChange();
+            }
+            
         }
 
         private void AccountDataUpdateChange ()
@@ -294,5 +349,31 @@ namespace QuanLyQuanCaFe
             accountBindingSource.DataSource = this.quanlycafeDataSet4.Account;
         }
         #endregion
+
+        private void CbAccountType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DtgvTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            
+        }
+
+        private void DtgvTable_SelectionChanged(object sender, EventArgs e)
+        {
+                        
+        }
+
+        private void DtgvAccount_MultiSelectChanged(object sender, EventArgs e)
+        {
+            txtPassword.Text = "";
+        }
+
+        private void TxtPassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

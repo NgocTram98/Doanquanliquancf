@@ -26,6 +26,7 @@ namespace QuanLyQuanCaFe
         {
             string userName = txbUserName.Text;
             string passWord =txbPassWord.Text;
+            txbPassWord.Text = "";
 
             DataRow row = null;
             if ((row = Login(userName, passWord)) != null)

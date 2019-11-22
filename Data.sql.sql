@@ -1,11 +1,14 @@
 ﻿CREATE DATABASE Quanlycafe
 USE Quanlycafe
+
+
 CREATE TABLE TableFood
 (
     id INT IDENTITY PRIMARY KEY,
     name NVARCHAR(100) NOT NULL DEFAULT N'Ban chua dat ten', 
     status NVARCHAR(100) NOT NULL DEFAULT N'trong'
 )
+
 
 CREATE TABLE Account 
 (
@@ -25,18 +28,22 @@ CREATE TABLE Food
     id INT IDENTITY PRIMARY KEY,
     name NVARCHAR(100) NOT NULL DEFAULT N'chua dat ten',
     price FLOAT NOT NULL DEFAULT 0,
-    idCategory INT NOT NULL
-    FOREIGN KEY (idCategory) REFERENCES dbo.FoodCategory(id)
+    idCategory INT NULL
+    FOREIGN KEY (idCategory) REFERENCES dbo.FoodCategory(id) ON DELETE SET NULL
 )
+
+
 CREATE TABLE Bill
 (
     id INT IDENTITY PRIMARY KEY,
     DateCheckIn DATE NOT NULL DEFAULT GETDATE(),
     DateCheckOut DATE, -- thời gian checkout
     idTable INT NOT NULL, -- bàn nào
-    status INT NOT NULL DEFAULT 0 -- check out hay chưa: 0 - chưa, 1: rồi
+    status INT NOT NULL DEFAULT 0, -- check out hay chưa: 0 - chưa, 1: rồi
+    discount int default 0,
     FOREIGN KEY (idTable) REFERENCES dbo.TableFood(id)
 )
+
 CREATE TABLE BillInfo
 (
     id INT IDENTITY PRIMARY KEY,
@@ -96,9 +103,6 @@ BEGIN
      VALUES (Null, @idtable, 0)
 END
 
-alter table dbo.bill 
-	add discount int default 0	
-update dbo.bill set discount = 0
 
 CREATE PROC USP_InsertFood
 @name nvarchar(100), @category int, @price float

@@ -113,10 +113,12 @@
             this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tpAccount = new System.Windows.Forms.TabPage();
             this.panel22 = new System.Windows.Forms.Panel();
-            this.panel24 = new System.Windows.Forms.Panel();
             this.cbAccountType = new System.Windows.Forms.ComboBox();
             this.accountBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.quanlycafeDataSet4 = new QuanLyQuanCaFe.QuanlycafeDataSet4();
+            this.label14 = new System.Windows.Forms.Label();
+            this.panel24 = new System.Windows.Forms.Panel();
+            this.txtPassword = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.panel25 = new System.Windows.Forms.Panel();
             this.txbDisplayName = new System.Windows.Forms.TextBox();
@@ -130,6 +132,10 @@
             this.btnAddAccount = new System.Windows.Forms.Button();
             this.panel28 = new System.Windows.Forms.Panel();
             this.dtgvAccount = new System.Windows.Forms.DataGridView();
+            this.userNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.displayNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.passWordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.foodCategoryBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.quanlycafeDataSet2 = new QuanLyQuanCaFe.QuanlycafeDataSet2();
             this.foodTableAdapter = new QuanLyQuanCaFe.QuanlycafeDataSetTableAdapters.FoodTableAdapter();
@@ -138,12 +144,6 @@
             this.foodCategoryTableAdapter1 = new QuanLyQuanCaFe.QuanlycafeDataSet2TableAdapters.FoodCategoryTableAdapter();
             this.tableFoodTableAdapter = new QuanLyQuanCaFe.QuanlycafeDataSet3TableAdapters.TableFoodTableAdapter();
             this.accountTableAdapter = new QuanLyQuanCaFe.QuanlycafeDataSet4TableAdapters.AccountTableAdapter();
-            this.label14 = new System.Windows.Forms.Label();
-            this.txtPassword = new System.Windows.Forms.TextBox();
-            this.userNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.displayNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.passWordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tcAdmin.SuspendLayout();
             this.tpBill.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -183,9 +183,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgvTable)).BeginInit();
             this.tpAccount.SuspendLayout();
             this.panel22.SuspendLayout();
-            this.panel24.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.accountBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quanlycafeDataSet4)).BeginInit();
+            this.panel24.SuspendLayout();
             this.panel25.SuspendLayout();
             this.panel26.SuspendLayout();
             this.panel27.SuspendLayout();
@@ -843,7 +843,7 @@
             // cbTableStatus
             // 
             this.cbTableStatus.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.tableFoodBindingSource, "status", true));
-            this.cbTableStatus.Enabled = false;
+            this.cbTableStatus.DisplayMember = "StatusName";
             this.cbTableStatus.FormattingEnabled = true;
             this.cbTableStatus.Items.AddRange(new object[] {
             "0",
@@ -888,7 +888,7 @@
             // 
             // txbTableName
             // 
-            this.txbTableName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tableFoodBindingSource, "name", true));
+            this.txbTableName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tableFoodBindingSource, "name", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.txbTableName.Location = new System.Drawing.Point(112, 11);
             this.txbTableName.Margin = new System.Windows.Forms.Padding(2);
             this.txbTableName.Name = "txbTableName";
@@ -918,7 +918,7 @@
             // 
             // txtTableID
             // 
-            this.txtTableID.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tableFoodBindingSource, "id", true));
+            this.txtTableID.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tableFoodBindingSource, "id", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.txtTableID.Location = new System.Drawing.Point(112, 11);
             this.txtTableID.Margin = new System.Windows.Forms.Padding(2);
             this.txtTableID.Name = "txtTableID";
@@ -1018,6 +1018,8 @@
             this.dtgvTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgvTable.Size = new System.Drawing.Size(338, 432);
             this.dtgvTable.TabIndex = 0;
+            this.dtgvTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtgvTable_CellContentClick);
+            this.dtgvTable.SelectionChanged += new System.EventHandler(this.DtgvTable_SelectionChanged);
             // 
             // idDataGridViewTextBoxColumn2
             // 
@@ -1065,25 +1067,16 @@
             this.panel22.Size = new System.Drawing.Size(273, 437);
             this.panel22.TabIndex = 5;
             // 
-            // panel24
-            // 
-            this.panel24.Controls.Add(this.txtPassword);
-            this.panel24.Controls.Add(this.label11);
-            this.panel24.Location = new System.Drawing.Point(2, 87);
-            this.panel24.Margin = new System.Windows.Forms.Padding(2);
-            this.panel24.Name = "panel24";
-            this.panel24.Size = new System.Drawing.Size(268, 37);
-            this.panel24.TabIndex = 3;
-            // 
             // cbAccountType
             // 
-            this.cbAccountType.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.accountBindingSource, "Type", true));
+            this.cbAccountType.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.accountBindingSource, "Type", true));
             this.cbAccountType.FormattingEnabled = true;
             this.cbAccountType.Location = new System.Drawing.Point(121, 129);
             this.cbAccountType.Margin = new System.Windows.Forms.Padding(2);
             this.cbAccountType.Name = "cbAccountType";
             this.cbAccountType.Size = new System.Drawing.Size(148, 21);
             this.cbAccountType.TabIndex = 1;
+            this.cbAccountType.SelectedIndexChanged += new System.EventHandler(this.CbAccountType_SelectedIndexChanged);
             // 
             // accountBindingSource
             // 
@@ -1094,6 +1087,36 @@
             // 
             this.quanlycafeDataSet4.DataSetName = "QuanlycafeDataSet4";
             this.quanlycafeDataSet4.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(4, 128);
+            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(107, 19);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "Phân quyền:";
+            // 
+            // panel24
+            // 
+            this.panel24.Controls.Add(this.txtPassword);
+            this.panel24.Controls.Add(this.label11);
+            this.panel24.Location = new System.Drawing.Point(2, 87);
+            this.panel24.Margin = new System.Windows.Forms.Padding(2);
+            this.panel24.Name = "panel24";
+            this.panel24.Size = new System.Drawing.Size(268, 37);
+            this.panel24.TabIndex = 3;
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Location = new System.Drawing.Point(119, 9);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
+            this.txtPassword.Size = new System.Drawing.Size(149, 20);
+            this.txtPassword.TabIndex = 1;
+            this.txtPassword.TextChanged += new System.EventHandler(this.TxtPassword_TextChanged);
             // 
             // label11
             // 
@@ -1235,6 +1258,31 @@
             this.dtgvAccount.RowTemplate.Height = 24;
             this.dtgvAccount.Size = new System.Drawing.Size(338, 432);
             this.dtgvAccount.TabIndex = 0;
+            this.dtgvAccount.MultiSelectChanged += new System.EventHandler(this.DtgvAccount_MultiSelectChanged);
+            // 
+            // userNameDataGridViewTextBoxColumn
+            // 
+            this.userNameDataGridViewTextBoxColumn.DataPropertyName = "UserName";
+            this.userNameDataGridViewTextBoxColumn.HeaderText = "Tên đăng nhập";
+            this.userNameDataGridViewTextBoxColumn.Name = "userNameDataGridViewTextBoxColumn";
+            // 
+            // displayNameDataGridViewTextBoxColumn
+            // 
+            this.displayNameDataGridViewTextBoxColumn.DataPropertyName = "DisplayName";
+            this.displayNameDataGridViewTextBoxColumn.HeaderText = "Tên hiển thị";
+            this.displayNameDataGridViewTextBoxColumn.Name = "displayNameDataGridViewTextBoxColumn";
+            // 
+            // passWordDataGridViewTextBoxColumn
+            // 
+            this.passWordDataGridViewTextBoxColumn.DataPropertyName = "PassWord";
+            this.passWordDataGridViewTextBoxColumn.HeaderText = "Mật khẩu";
+            this.passWordDataGridViewTextBoxColumn.Name = "passWordDataGridViewTextBoxColumn";
+            // 
+            // typeDataGridViewTextBoxColumn
+            // 
+            this.typeDataGridViewTextBoxColumn.DataPropertyName = "Type";
+            this.typeDataGridViewTextBoxColumn.HeaderText = "Phân quyền";
+            this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
             // 
             // foodCategoryBindingSource1
             // 
@@ -1270,49 +1318,6 @@
             // accountTableAdapter
             // 
             this.accountTableAdapter.ClearBeforeFill = true;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(4, 128);
-            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(107, 19);
-            this.label14.TabIndex = 0;
-            this.label14.Text = "Phân quyền:";
-            // 
-            // txtPassword
-            // 
-            this.txtPassword.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.accountBindingSource, "PassWord", true));
-            this.txtPassword.Location = new System.Drawing.Point(119, 9);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(149, 20);
-            this.txtPassword.TabIndex = 1;
-            // 
-            // userNameDataGridViewTextBoxColumn
-            // 
-            this.userNameDataGridViewTextBoxColumn.DataPropertyName = "UserName";
-            this.userNameDataGridViewTextBoxColumn.HeaderText = "Tên đăng nhập";
-            this.userNameDataGridViewTextBoxColumn.Name = "userNameDataGridViewTextBoxColumn";
-            // 
-            // displayNameDataGridViewTextBoxColumn
-            // 
-            this.displayNameDataGridViewTextBoxColumn.DataPropertyName = "DisplayName";
-            this.displayNameDataGridViewTextBoxColumn.HeaderText = "Tên hiển thị";
-            this.displayNameDataGridViewTextBoxColumn.Name = "displayNameDataGridViewTextBoxColumn";
-            // 
-            // passWordDataGridViewTextBoxColumn
-            // 
-            this.passWordDataGridViewTextBoxColumn.DataPropertyName = "PassWord";
-            this.passWordDataGridViewTextBoxColumn.HeaderText = "Mật khẩu";
-            this.passWordDataGridViewTextBoxColumn.Name = "passWordDataGridViewTextBoxColumn";
-            // 
-            // typeDataGridViewTextBoxColumn
-            // 
-            this.typeDataGridViewTextBoxColumn.DataPropertyName = "Type";
-            this.typeDataGridViewTextBoxColumn.HeaderText = "Phân quyền";
-            this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
             // 
             // fAdmin
             // 
@@ -1376,10 +1381,10 @@
             this.tpAccount.ResumeLayout(false);
             this.panel22.ResumeLayout(false);
             this.panel22.PerformLayout();
-            this.panel24.ResumeLayout(false);
-            this.panel24.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.accountBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.quanlycafeDataSet4)).EndInit();
+            this.panel24.ResumeLayout(false);
+            this.panel24.PerformLayout();
             this.panel25.ResumeLayout(false);
             this.panel25.PerformLayout();
             this.panel26.ResumeLayout(false);
