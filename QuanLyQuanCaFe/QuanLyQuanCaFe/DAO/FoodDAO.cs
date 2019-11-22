@@ -15,15 +15,28 @@ namespace QuanLyQuanCaFe.DAO
 
         public static FoodDAO Instance { get => (instance == null ? new FoodDAO () : instance); set => instance = value; }
 
-        public void InsertFood (String name, int category, double price)
+        public bool InsertFood (String name, int category, double price)
         {
-            DataProvider.Instance.ExecuteNonQuery("USP_InsertFood @name , @category , @price ", new object[] { name, category, price });
+            int result = DataProvider.Instance.ExecuteNonQuery("USP_InsertFood @name , @category , @price ", new object[] { name, category, price });
+            return result > 0;
         }
-        
-        public List<Food> SelectAlike (String pattern)
+
+        public bool DeleteFood (int id) 
+        {
+            int result = DataProvider.Instance.ExecuteNonQuery("DELETE FROM dbo.Food WHERE id=" + id);
+            return result > 0;
+
+        }
+        public bool EditFood (int id, String name, double price, int idCategory)
+        {
+            int result = DataProvider.Instance.ExecuteNonQuery("USP_EditFood @id , @name , @category , @price ", new object[] { id, name, idCategory, price });
+            return result > 0;
+        }
+
+        public List<Food> SelectAlike(String pattern)
         {
             List<Food> foodlist = new List<Food>();
-            DataTable table = DataProvider.Instance.ExecuteQuery("SELECT * FROM food WHERE name LIKE '%" + pattern + "%'");
+            DataTable table = DataProvider.Instance.ExecuteQuery("USP_FindFood @name ", new object[] {pattern});// Sửa bug chỗ này, có N'@Str' mới ổn
             foreach (var row in table.Rows)
             {
                 foodlist.Add(new Food((DataRow)row));
