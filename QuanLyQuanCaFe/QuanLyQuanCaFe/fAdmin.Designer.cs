@@ -144,7 +144,6 @@
             this.foodCategoryTableAdapter1 = new QuanLyQuanCaFe.QuanlycafeDataSet2TableAdapters.FoodCategoryTableAdapter();
             this.tableFoodTableAdapter = new QuanLyQuanCaFe.QuanlycafeDataSet3TableAdapters.TableFoodTableAdapter();
             this.accountTableAdapter = new QuanLyQuanCaFe.QuanlycafeDataSet4TableAdapters.AccountTableAdapter();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.directoryEntry1 = new System.DirectoryServices.DirectoryEntry();
             this.tcAdmin.SuspendLayout();
             this.tpBill.SuspendLayout();
@@ -205,7 +204,6 @@
             this.tcAdmin.Controls.Add(this.tbFoodCategory);
             this.tcAdmin.Controls.Add(this.tpTable);
             this.tcAdmin.Controls.Add(this.tpAccount);
-            this.tcAdmin.Controls.Add(this.tabPage1);
             this.tcAdmin.Location = new System.Drawing.Point(9, 10);
             this.tcAdmin.Margin = new System.Windows.Forms.Padding(2);
             this.tcAdmin.Name = "tcAdmin";
@@ -1322,16 +1320,6 @@
             // 
             this.accountTableAdapter.ClearBeforeFill = true;
             // 
-            // tabPage1
-            // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(627, 504);
-            this.tabPage1.TabIndex = 5;
-            this.tabPage1.Text = "Báo cáo";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
             // fAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1529,7 +1517,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn displayNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn passWordDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn typeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.TabPage tabPage1;
         private System.DirectoryServices.DirectoryEntry directoryEntry1;
     }
 }
