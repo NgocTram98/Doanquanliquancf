@@ -193,3 +193,6 @@ as
 begin
 	delete from dbo.Account where UserName = @username
 end
+
+delete  from account
+select * from food
