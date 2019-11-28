@@ -8,6 +8,7 @@ namespace QuanLyQuanCaFe.DTO
 {
     public class Menu
     {
+        int id;
         String name;
         int count;
         double price;
@@ -17,9 +18,11 @@ namespace QuanLyQuanCaFe.DTO
         public int Count { get => count; set => count = value; }
         public double Price { get => price; set => price = value; }
         public double Money { get => money; set => money = value; }
+        public int Id { get => id; set => id = value; }
 
-        public Menu(string name, int count, double price, double money)
+        public Menu(int id, string name, int count, double price, double money)
         {
+            this.Id = id;
             this.Name = name;
             this.Count = count;
             this.Price = price;
@@ -28,6 +31,7 @@ namespace QuanLyQuanCaFe.DTO
 
         public Menu (DataRow row)
         {
+            this.Id = (int)row["id"];
             this.Name = (String)row["name"];
             this.Count= (int)row["count"];
             this.Price = (double)row["price"];

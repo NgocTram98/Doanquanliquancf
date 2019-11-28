@@ -94,14 +94,14 @@
             // thôngTinCáNhânToolStripMenuItem
             // 
             this.thôngTinCáNhânToolStripMenuItem.Name = "thôngTinCáNhânToolStripMenuItem";
-            this.thôngTinCáNhânToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.thôngTinCáNhânToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.thôngTinCáNhânToolStripMenuItem.Text = "Thông tin cá nhân";
             this.thôngTinCáNhânToolStripMenuItem.Click += new System.EventHandler(this.thôngTinCáNhânToolStripMenuItem_Click);
             // 
             // đăngXuấtToolStripMenuItem
             // 
             this.đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
-            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
             this.đăngXuấtToolStripMenuItem.Click += new System.EventHandler(this.đăngXuấtToolStripMenuItem_Click);
             // 
@@ -116,6 +116,7 @@
             // 
             // lsvBill
             // 
+            this.lsvBill.Activation = System.Windows.Forms.ItemActivation.OneClick;
             this.lsvBill.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
@@ -123,6 +124,8 @@
             this.columnHeader4});
             this.lsvBill.GridLines = true;
             this.lsvBill.HideSelection = false;
+            this.lsvBill.HotTracking = true;
+            this.lsvBill.HoverSelection = true;
             this.lsvBill.Location = new System.Drawing.Point(2, 3);
             this.lsvBill.Margin = new System.Windows.Forms.Padding(2);
             this.lsvBill.Name = "lsvBill";
@@ -130,23 +133,27 @@
             this.lsvBill.TabIndex = 0;
             this.lsvBill.UseCompatibleStateImageBehavior = false;
             this.lsvBill.View = System.Windows.Forms.View.Details;
+            this.lsvBill.ItemActivate += new System.EventHandler(this.LsvBill_ItemActivate);
             // 
             // columnHeader1
             // 
+            this.columnHeader1.DisplayIndex = 0;
             this.columnHeader1.Text = "Tên món";
             this.columnHeader1.Width = 150;
             // 
             // columnHeader2
             // 
+            this.columnHeader2.DisplayIndex = 1;
             this.columnHeader2.Text = "Số lượng";
             // 
             // columnHeader3
             // 
+            this.columnHeader3.DisplayIndex = 2;
             this.columnHeader3.Text = "Đơn giá";
-            this.columnHeader3.Width = 90;
             // 
             // columnHeader4
             // 
+            this.columnHeader4.DisplayIndex = 3;
             this.columnHeader4.Text = "Thành tiền";
             this.columnHeader4.Width = 150;
             // 

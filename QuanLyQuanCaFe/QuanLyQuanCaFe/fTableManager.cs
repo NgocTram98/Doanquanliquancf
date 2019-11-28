@@ -108,7 +108,10 @@ namespace QuanLyQuanCaFe
                 lsvItem.SubItems.Add(info.Count+"");
                 lsvItem.SubItems.Add(info.Price + "");
                 lsvItem.SubItems.Add(info.Money + "");
+                lsvItem.Tag = info.Id;
+
                 lsvBill.Items.Add(lsvItem);
+                                                          
             }
 
             currentTableId = tableId;
@@ -230,6 +233,18 @@ namespace QuanLyQuanCaFe
             currentTableId = idTableMovedTo;
             LoadTable();
             UpdateChange(currentTableId);
+        }
+
+        private void LsvBill_ItemActivate(object sender, EventArgs e)
+        {
+            if ((sender as ListView).SelectedItems.Count > 0)
+            {
+                int foodId = (int)(sender as ListView).SelectedItems[0].Tag;
+                int billId = BillDAO.Instance.GetUncheckedBillIDByTableID(currentTableId);
+                BillInfoDAO.Instance.InsertBillInfos(billId, foodId, -1);
+                LoadTable();
+                UpdateChange(currentTableId);
+            }
         }
     }
 }

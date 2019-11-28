@@ -34,7 +34,7 @@ namespace QuanLyQuanCaFe
             String password = txbPassWord.Text;
             String newPassword = txbNewPass.Text;
             String rePassword = txbReEnterPass.Text;
-            if (!newPassword.Equals( rePassword))
+            if (!newPassword.Equals(rePassword))
             {
                 MessageBox.Show("Password nhập lại không khớp");
                 return;

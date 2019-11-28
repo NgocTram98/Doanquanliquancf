@@ -114,6 +114,19 @@ namespace QuanLyQuanCaFe.DAO
             }
             return idTableMovedTo;
         }
+
+        public void CheckAndRemoveInvalidBill (int billId)
+        {
+            String sql = "SELECT * FROM dbo.BillInfo WHERE idBill=" + billId;
+            DataTable table = DataProvider.Instance.ExecuteQuery(sql);
+
+            if (table.Rows.Count == 0)
+            {
+                sql = "UPDATE dbo.TableFood SET status='trong' WHERE id = (SELECT idTable from dbo.Bill WHERE dbo.Bill.Id="+billId+") "
+                      + " ; DELETE FROM dbo.bill WHERE id=" + billId; // Này là sửa chắp vá
+                DataProvider.Instance.ExecuteNonQuery(sql);
+            }
+        }
     }
 
     

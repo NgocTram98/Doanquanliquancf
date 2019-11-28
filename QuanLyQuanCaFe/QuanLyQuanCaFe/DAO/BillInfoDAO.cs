@@ -33,10 +33,21 @@ namespace QuanLyQuanCaFe.DAO
         {
             String sql = "SELECT * From dbo.billinfo WHERE idBill=" + billId + " AND idFood=" + foodId;
             DataTable table = DataProvider.Instance.ExecuteQuery(sql);
+       
             if (table.Rows.Count > 0)
             {
-                sql = "UPDATE dbo.billinfo SET count=count+"+count+ " WHERE idBill=" + billId + " AND idFood=" + foodId;
-                DataProvider.Instance.ExecuteScalar(sql);
+                BillInfo info = new BillInfo(table.Rows[0]);
+                if (info.Count + count <= 0)
+                {
+                    sql = "DELETE FROM dbo.billinfo WHERE idBill=" + billId + " AND idFood=" + foodId;
+                    DataProvider.Instance.ExecuteScalar(sql);
+                    BillDAO.Instance.CheckAndRemoveInvalidBill(billId);
+                }
+                else
+                {
+                    sql = "UPDATE dbo.billinfo SET count=count+" + count + " WHERE idBill=" + billId + " AND idFood=" + foodId;
+                    DataProvider.Instance.ExecuteScalar(sql);
+                }
             } else {
                 sql = "INSERT INTO dbo.billinfo (idBill,idFood,count) VALUES (" + billId + ", " + foodId + ", " + count + ")";
                 DataProvider.Instance.ExecuteScalar(sql);

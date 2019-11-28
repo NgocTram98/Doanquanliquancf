@@ -68,10 +68,10 @@ namespace QuanLyQuanCaFe.DAO
         {
             var md5Password = CreateMD5(password);
             int result = 1;
+
             try
             {
                 result = DataProvider.Instance.ExecuteNonQuery("USP_EditAccount @username , @displayName , @passWord , @type ", new object[] { userName, displayName, md5Password, type });
-
             }
             catch (Exception e)
             {
@@ -113,12 +113,15 @@ namespace QuanLyQuanCaFe.DAO
         public bool ChangeInfo (string userName, string passWord, string newPassWord, string displayName)
         {
             if (Login (userName, passWord) == null)
+            {
+                Console.WriteLine ("Logged failed");
                 return false;
+            }
 
-
-
+            string passWordMD5 = CreateMD5(passWord);
+            string newPassWordMD5  = CreateMD5(newPassWord);
             string query = "USP_ChangeInfo @account ,  @oldpassword , @password , @displayname ";
-            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { userName, passWord, newPassWord,  displayName});
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { userName, passWordMD5, newPassWordMD5,  displayName});
             return (result > 0);
         }
 
