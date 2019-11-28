@@ -199,3 +199,6 @@ select * from tablefood
 UPDATE dbo.TableFood SET status='trong' 
 	WHERE id=(SELECT idTable from dbo.Bill WHERE dbo.Bill.Id = 22) 
 ; DELETE FROM dbo.bill WHERE idBill=22
+
+
+update tablefood set status='trong'
